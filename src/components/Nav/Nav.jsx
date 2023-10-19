@@ -35,12 +35,12 @@ function Nav() {
 
             {/* infoPage */}
             <Link className="navLink" to="/info">
-             Add Poster
+             Info
             </Link>
 
-            {/* <Link className="navLink" to="/poster">
+            <Link className="navLink" to="/poster">
              Add Poster
-            </Link> */}
+            </Link>
 
             <Link className="navLink" to="/memorialMap">
              Memorial Map

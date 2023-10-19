@@ -64,6 +64,7 @@ function App() {
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/info"
+            
           >
             <InfoPage />
           </ProtectedRoute>
