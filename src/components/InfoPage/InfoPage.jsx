@@ -14,7 +14,7 @@ function InfoPage() {
 
   return (
     <div className="container">
-      <h1>I don't think I need this page?</h1>
+      <h1>Coding info on app</h1>
       
     </div>
   );

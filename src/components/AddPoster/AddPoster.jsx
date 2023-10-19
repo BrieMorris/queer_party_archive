@@ -13,7 +13,7 @@ function AddPoster(props) {
   const poster = useSelector((store) => store.user);
 
   const toArchive = (event) => {
-    history.push('/about')
+    history.push('/archive')
   }
 
   return (
@@ -28,7 +28,7 @@ function AddPoster(props) {
       </h2>
       
       <h2>Add Poster</h2>
-      <input type="text" placeholder="add poster"/>
+      <input type="text" placeholder="poster image url"/>
 
       <h3>Description of Event</h3>
       <input type="text" placeholder="add description"/>

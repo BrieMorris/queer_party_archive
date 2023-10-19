@@ -22,7 +22,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import AddPoster from '../AddPoster/AddPoster';
 import Archive from '../Archive/Archive';
 import AddContent from '../AddContent/AddContent';
-import ViewPoster from '../TemplateFunction/TemplateFunction';
+import ViewPoster from '../ViewPoster/ViewPoster';
+import MemorialMap from '../MemorialMap/MemorialMap';
 
 import './App.css';
 
@@ -108,6 +109,15 @@ function App() {
             
           >
             <AddPoster />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // naviagate to memorial map
+            exact
+            path="/memorialMap"
+            
+          >
+            <MemorialMap />
           </ProtectedRoute>
 
           <Route

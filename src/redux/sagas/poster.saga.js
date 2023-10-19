@@ -1,45 +1,42 @@
-import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
-// edit this to work for posters --worker Saga: will be fired on "LOGIN" actions
-function* addPoster(action) {
-  try {
-    // clear any existing error on the login page
-    yield put({ type: 'ADD_POSTER' });
-
-    //do i need this
-    const config = {
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-    };
-
-    // send the action.payload as the body
-    // the config includes credentials which
-    // allow the server session to recognize the user
-    yield axios.post('/api/user/login', action.payload, config);
-
-    // after the user has logged in
-    // get the user information from the server
-    yield put({ type: 'FETCH_USER' });
-  } catch (error) {
-    console.log('Error with user login:', error);
-    if (error.response.status === 401) {
-      // The 401 is the error status sent from passport
-      // if user isn't in the database or
-      // if the username and password don't match in the database
-      yield put({ type: 'LOGIN_FAILED' });
-    } else {
-      // Got an error that wasn't a 401
-      // Could be anything, but most common cause is the server is not started
-      yield put({ type: 'LOGIN_FAILED_NO_CODE' });
+//saga function to retrieve observations from DB
+function* displayPoster(action) {
+    try {
+        const posterResponse = yield axios.get(`/api/poster`);
+        yield put({ type: 'SET_ALL_POSTERS', payload: posterResponse.data});
+    } catch (error) {
+        console.log(error);
     }
   }
-}
+  
+  //saga function to add observation to DB
+  function* addPosters(action) {
+    try {
+      yield axios.post('/api/addPoster', action.payload);
+      yield put({ type: 'ADD_POSTER', payload: action.payload });
+    } catch (error) {
+        console.log('error adding poster', error);
+    }    
+  }
+  
+  //saga function to add observation to DB
+  function* addPosterContent(action) {
+    try {
+      yield axios.post('/api/observation', action.payload);
+      yield put({ type: 'FETCH_USER_OBSERVATIONS', payload: action.payload });
+    } catch (error) {
+        console.log('error posting observation', error);
+    }    
+  }
+  
+ 
 
-// local root saga for this page edit it to add poster info
-function* posterSaga() {
-  // yield takeLatest('LOGIN', loginUser);
-  // yield takeLatest('LOGOUT', logoutUser);
-}
-
-export default posterSaga;
+  function* posterSaga() {
+    yield takeEvery('FETCH_USER_OBSERVATIONS', fetchUserObservations);
+    yield takeEvery('ADD_NEW_OBSERVATION', addNewObservation);
+    yield takeEvery('SEARCH_WIKI', searchWikipedia);
+  }
+  
+  export default posterSaga;
