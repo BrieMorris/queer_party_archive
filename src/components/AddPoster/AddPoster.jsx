@@ -8,19 +8,17 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function AddPoster(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Functional Component');
-
+  const [heading, setHeading] = useState('Add the Event Poster');
   const history = useHistory();
   const poster = useSelector((store) => store.user);
 
   const toArchive = (event) => {
-    history.push('/info')
+    history.push('/about')
   }
 
   return (
     <div className="container">
-      <h1>Add the Event Poster</h1>
+      <h1>{heading}</h1>
       {/* make the h2 a dialogue box check list */}
       <h2>CHECK before you are the poster:
         <br></br>
@@ -37,9 +35,9 @@ function AddPoster(props) {
 
       <h3>Date of Event</h3>
       <input type="text" placeholder="event date"/>
-
+      <br/> <br/>
       {/* store to posters database & go back to archive page */}
-      {/* <button onClick={AddPoster} >Next</button> */}
+      <button onClick={toArchive} className="btn">ADD</button>
     </div>
   );
 }

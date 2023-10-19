@@ -29,14 +29,18 @@ function Nav() {
             </Link>
 
             {/* about */}
-            <Link className="navLink" to="/about">
-            Archive
-             </Link>
+            {/* <Link className="navLink" to="/about">
+            about
+             </Link> */}
 
             {/* infoPage */}
-            <Link className="navLink" to="/info">
+            {/* <Link className="navLink" to="/info">
              Info
-            </Link>
+            </Link> */}
+
+            <Link className="navLink" to="/archive">
+            Archive
+             </Link>
 
             <Link className="navLink" to="/poster">
              Add Poster

@@ -19,6 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import AddPoster from '../AddPoster/AddPoster';
+import Archive from '../Archive/Archive';
 
 import './App.css';
 
@@ -64,9 +66,27 @@ function App() {
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/info"
-            
+
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // navigated to archive
+            exact
+            path="/archive"
+
+          >
+            <Archive />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // navigated to add poster
+            exact
+            path="/poster"
+            
+          >
+            <AddPoster />
           </ProtectedRoute>
 
           <Route
