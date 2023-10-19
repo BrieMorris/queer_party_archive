@@ -9,6 +9,7 @@ function UserPage() {
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
+      <h2>What is the MN Queer Party Archive? </h2>
       <LogOutButton className="btn" />
     </div>
   );

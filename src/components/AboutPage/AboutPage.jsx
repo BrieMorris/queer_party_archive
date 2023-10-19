@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <h1>Welcome to the MN Queer Archive!</h1>
       </div>
     </div>
   );

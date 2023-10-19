@@ -1,4 +1,4 @@
-const badSecret = `
+const badSecret = `SERVER_SESSION_SECRET
 ----------------------------
 
 *** WARNING ***
