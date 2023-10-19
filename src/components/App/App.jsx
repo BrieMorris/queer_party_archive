@@ -21,6 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AddPoster from '../AddPoster/AddPoster';
 import Archive from '../Archive/Archive';
+import AddContent from '../AddContent/AddContent';
+import ViewPoster from '../TemplateFunction/TemplateFunction';
 
 import './App.css';
 
@@ -79,6 +81,25 @@ function App() {
           >
             <Archive />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // navigated from archive to view poster content
+            exact
+            path="/viewPoster"
+
+          >
+            <ViewPoster />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // navigated from archive to view poster content
+            exact
+            path="/addContent"
+
+          >
+            <AddContent />
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             // navigated to add poster

@@ -8,7 +8,7 @@ function ViewPoster(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Here are all the pictures and memories people have shared about this event!');
+  const [heading, setHeading] = useState('Functional Component');
 
   return (
     <div>
