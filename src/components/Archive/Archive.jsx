@@ -14,7 +14,7 @@ function Archive (props) {
   return ( 
     <div className="container">
       <h2>{heading}</h2>
-      <img></img>
+      
     </div>
   );
 }

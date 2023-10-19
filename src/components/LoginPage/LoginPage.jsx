@@ -6,7 +6,10 @@ function LoginPage() {
   const history = useHistory();
 
   return (
-    <div>
+   //add a dialougue box of the ideals and guidlines that user need to agree to 
+   <div>
+      {/* add banner images */}
+      <img></img>
       <LoginForm />
 
       <center>
