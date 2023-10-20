@@ -44,7 +44,7 @@ function* displayPoster(action) {
  
 
   function* posterSaga() {
-    yield takeEvery('SET_ALL_POSTERS', displayPoster);
+    yield takeEvery('FETCH_ALL_POSTERS', displayPoster);
     yield takeEvery('ADD_POSTER', addPosters);
     yield takeEvery('ADD_POSTER_CONTENT', addPosterContent);
     yield takeEvery('VIEW_POSTER_CONTENT', addPosterContent);

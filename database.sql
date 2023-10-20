@@ -11,14 +11,16 @@ CREATE TABLE "user" (
 
 CREATE TABLE "posters" (
     "id" SERIAL PRIMARY KEY,
-    "user_id" VARCHAR (80) UNIQUE NOT NULL,
-    "poster_img" VARCHAR (150) NOT NULL
-    "desription" VARCHAR (1500) NOT NULL
-    "date" INT NOT NULL
+    "user_id" INT REFERENCES "user" NOT NULL,
+    "poster_img" VARCHAR (150) NOT NULL,
+    "description" VARCHAR (1500) NOT NULL,
+    "date" date NOT NULL 
 );
 
 CREATE TABLE "poster_content" (
     "id" SERIAL PRIMARY KEY,
-    "user_" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "user_id" INT REFERENCES "user" NOT NULL,
+    "poster_id" INT REFERENCES "posters" NOT NULL,
+    "images" VARCHAR (150) NOT NULL,
+    "memory" VARCHAR (1500) NOT NULL,
 );

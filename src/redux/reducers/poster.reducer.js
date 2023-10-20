@@ -1,20 +1,22 @@
-const displayPoster = (state = {}, action) => {
+import { combineReducers } from "redux";
+
+const displayPoster = (state = [], action) => {
   switch (action.type) {
     case 'SET_ALL_POSTERS':
       return action.payload;
     case 'UNSET_ALL_POSTERS':
-      return {};
+      return [];
     default:
       return state;
   }
 };
 
-const addPoster = (state = {}, action) => {
+const addPoster = (state = [], action) => {
   switch (action.type) {
     case 'ADD_POSTER':
       return action.payload;
     case 'UNADD_POSTER':
-      return {};
+      return [];
     default:
       return state;
   }

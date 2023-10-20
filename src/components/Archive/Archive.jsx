@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import {useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 // Basic functional component structure for React with default state
@@ -11,6 +11,13 @@ function Archive (props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('ARCHIVE');
   const history = useHistory();
+  const dispatch = useDispatch();
+  const posterList = useSelector(store => store.posterReducer.displayPoster);
+  console.log(posterList);
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_ALL_POSTERS' });
+}, []);
 
   const addContent = (event) => {
     history.push('/addContent')
