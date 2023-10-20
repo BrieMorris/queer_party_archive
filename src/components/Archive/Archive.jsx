@@ -14,7 +14,7 @@ function Archive (props) {
   const dispatch = useDispatch();
   const posterList = useSelector(store => store.posterReducer.displayPoster);
   console.log(posterList);
- 
+
 
 
   useEffect(() => {
@@ -29,7 +29,11 @@ function Archive (props) {
     history.push('/viewPoster')
   }
   
-  
+  function resizeImg(img, newWidth, newHeight) {
+    // Set the new width and height for the image
+    img.width = newWidth;
+    img.height = newHeight;
+  }
 
   return (
     <div className="container">
@@ -39,8 +43,7 @@ function Archive (props) {
         {posterList.map( posters => {
           return(
             <div key={posters.id}>
-              {/* set size of image */}
-              <img src={`images/${posters.poster_img}`} onload= "resizeImg(this, 25, 50)"></img>
+              <img src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
               <br/>  <br/>
               <button onClick={addContent} className="btn">ADD</button>
               <button onClick={viewPoster} className="btn">VIEW</button>
