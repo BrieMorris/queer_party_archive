@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
-//saga function to retrieve observations from DB
+//saga function to diplay posters in archive using db
 function* displayPoster(action) {
     try {
         const posterResponse = yield axios.get(`/api/poster`);
@@ -11,7 +11,7 @@ function* displayPoster(action) {
     }
   }
   
-  //saga function to add observation to DB
+  //saga function to add add posters to be displayed in archive using db
   function* addPosters(action) {
     try {
       yield axios.post('/api/addPoster', action.payload);
@@ -21,11 +21,21 @@ function* displayPoster(action) {
     }    
   }
   
-  //saga function to add observation to DB
+  //saga function to add content to posters using db
   function* addPosterContent(action) {
     try {
-      yield axios.post('/api/observation', action.payload);
-      yield put({ type: 'FETCH_USER_OBSERVATIONS', payload: action.payload });
+      yield axios.post('/api/posterContent', action.payload);
+      yield put({ type: 'ADD_POSTER_CONTENT', payload: action.payload });
+    } catch (error) {
+        console.log('error posting observation', error);
+    }    
+  }
+  
+  //saga function to view content of posters using db
+  function* viewPosterContent(action) {
+    try {
+      yield axios.post('/api/posterContent', action.payload);
+      yield put({ type: 'VIEW_POSTER_CONTENT', payload: action.payload });
     } catch (error) {
         console.log('error posting observation', error);
     }    
@@ -34,9 +44,10 @@ function* displayPoster(action) {
  
 
   function* posterSaga() {
-    yield takeEvery('FETCH_USER_OBSERVATIONS', fetchUserObservations);
-    yield takeEvery('ADD_NEW_OBSERVATION', addNewObservation);
-    yield takeEvery('SEARCH_WIKI', searchWikipedia);
+    yield takeEvery('SET_ALL_POSTERS', displayPoster);
+    yield takeEvery('ADD_POSTER', addPosters);
+    yield takeEvery('ADD_POSTER_CONTENT', addPosterContent);
+    yield takeEvery('VIEW_POSTER_CONTENT', addPosterContent);
   }
   
   export default posterSaga;

@@ -14,7 +14,7 @@ function InfoPage() {
 
   return (
     <div className="container">
-      <h1>Coding info on app</h1>
+      <h1>Coding info on app add button on home screen</h1>
       
     </div>
   );

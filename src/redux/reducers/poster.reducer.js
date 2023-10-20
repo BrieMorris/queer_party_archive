@@ -21,7 +21,9 @@ const addPoster = (state = {}, action) => {
 };
 
 //combine reducers
+export default combineReducers({
+  displayPoster,
+  addPoster,
+});
 
-// user will be on the redux state at:
-// state.user
-export default userReducer;
+
