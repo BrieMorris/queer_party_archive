@@ -14,6 +14,8 @@ function Archive (props) {
   const dispatch = useDispatch();
   const posterList = useSelector(store => store.posterReducer.displayPoster);
   console.log(posterList);
+ 
+
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_POSTERS' });
@@ -34,10 +36,20 @@ function Archive (props) {
       <h2>{heading}</h2>
       <h3>There will be images of posters</h3>
 
-      {/* these buttons need to be attached to each poster added to data base */}
-      <button onClick={addContent} className="btn">ADD</button>
+        {posterList.map( posters => {
+          return(
+            <div key={posters.id}>
+              {/* set size of image */}
+              <img src={`images/${posters.poster_img}`} onload= "resizeImg(this, 25, 50)"></img>
+              <br/>  <br/>
+              <button onClick={addContent} className="btn">ADD</button>
+              <button onClick={viewPoster} className="btn">VIEW</button>
+            </div>
+          )
+        })}
 
-      <button onClick={viewPoster} className="btn">VIEW</button>
+      {/* these buttons need to be attached to each poster added to data base */}
+     
     </div>
   );
 }

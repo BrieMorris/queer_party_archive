@@ -22,10 +22,34 @@ const addPoster = (state = [], action) => {
   }
 };
 
+const addPosterContent = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_POSTER_CONTENT':
+      return action.payload;
+    case 'UNADD_POSTER_CONTENT':
+      return [];
+    default:
+      return state;
+  }
+};
+
+const viewPosterContent = (state = [], action) => {
+  switch (action.type) {
+    case 'VIEW_POSTER_CONTENT':
+      return action.payload;
+    case 'VIEW_POSTER_CONTENT':
+      return [];
+    default:
+      return state;
+  }
+};
+
 //combine reducers
 export default combineReducers({
   displayPoster,
   addPoster,
+  addPosterContent,
+  viewPosterContent,
 });
 
 
