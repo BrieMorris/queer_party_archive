@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 
 const posterRouter = require('./routes/poster.router');
+const viewRouter = require('./routes/view.view')
 
 
 
