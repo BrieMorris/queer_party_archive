@@ -10,6 +10,11 @@ function ViewPoster(props) {
   const store = useSelector((store) => store);
   const history = useHistory();
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
+  const viewContent = useSelector(store => store.viewReducer.viewPosterContent);
+
+  useEffect(() => {
+    dispatch({ type: 'VIEW_POSTER' });
+}, []);
   
   const toArchive = (event) => {
     history.push('/archive')
