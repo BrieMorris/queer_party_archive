@@ -7,7 +7,8 @@ const router = express.Router();
  * GET route to view all poster content
  */
 router.get('/', (req, res) => {
-  const queryText = `SELECT
+  const queryText = `SELECT 
+  p.user_id,
   p.poster_img,
   p.description,
   p.date,
@@ -30,10 +31,10 @@ JOIN
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-  console.log(req.body);
-  const viewPoster = `INSERT INTO posters (user_id, poster_img, description, date)
-  VALUES (user_id_value, 'poster_img_value', 'description_value', 'date_value');`
-});
+// router.post('/', (req, res) => {
+//   console.log(req.body);
+//   const viewPoster = `INSERT INTO posters (user_id, poster_img, description, date)
+//   VALUES (user_id_value, 'poster_img_value', 'description_value', 'date_value');`
+// });
 
 module.exports = router;

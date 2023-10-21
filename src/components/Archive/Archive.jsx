@@ -50,8 +50,6 @@ function Archive (props) {
             </div>
           )
         })}
-
-      {/* these buttons need to be attached to each poster added to data base */}
      
     </div>
   );

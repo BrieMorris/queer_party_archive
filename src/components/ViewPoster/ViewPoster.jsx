@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch,} from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useEffect } from 'react';
+
+
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -10,7 +14,9 @@ function ViewPoster(props) {
   const store = useSelector((store) => store);
   const history = useHistory();
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
-  const viewContent = useSelector(store => store.viewReducer.viewPosterContent);
+  const viewContent = useSelector(store => store.posterReducer.viewPosterContent);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER' });
@@ -24,14 +30,10 @@ function ViewPoster(props) {
     <div>
       <h2>{heading}</h2>
       <br/> <br/>
-      {/* All of these will need to be pulled from
-       posters table and poster_content table
-          Poster Image
-          Poster Description
-          Poster Date
-          Poster Pictures
-          Post Memories
-       */}
+      <div key={user.id}>
+
+
+      </div>
        <button onClick={toArchive} className="btn">Back</button>
     </div>
   );
