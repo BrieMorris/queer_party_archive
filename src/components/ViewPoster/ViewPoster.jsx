@@ -10,10 +10,15 @@ function ViewPoster(props) {
   const store = useSelector((store) => store);
   const history = useHistory();
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
+  
+  const toArchive = (event) => {
+    history.push('/archive')
+  }
 
   return (
     <div>
       <h2>{heading}</h2>
+      <br/> <br/>
       {/* All of these will need to be pulled from
        posters table and poster_content table
           Poster Image
@@ -22,6 +27,7 @@ function ViewPoster(props) {
           Poster Pictures
           Post Memories
        */}
+       <button onClick={toArchive} className="btn">Back</button>
     </div>
   );
 }
