@@ -3,18 +3,10 @@ const pool = require('../modules/pool');
 const { default: logger } = require('redux-logger');
 const router = express.Router();
 
-/**
- * GET route to view all poster content
- * first query there poster_content for a given poster
- * if there is poster content run query 2
- * if there is not poster content run query 3 (do not join)
- * these are mix between saga and router notes
- * 
- * or query paoster data - then query poster_content date 
- */
 
 
-router.get('/', (req, res) => {
+
+router.get('/posters', (req, res) => {
   const queryText = `SELECT * FROM posters;`
 
   pool.query(queryText)
@@ -27,7 +19,7 @@ router.get('/', (req, res) => {
    })
 });
 
-router.get('/', (req, res) => {
+router.get('/poster_content', (req, res) => {
   const queryText = `SELECT * FROM poster_content;`
 
   pool.query(queryText)

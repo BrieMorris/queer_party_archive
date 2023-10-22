@@ -31,29 +31,24 @@ function ViewPoster(props) {
   return (
     <div className="container">
       <h2>{heading}</h2>
-      <br/> <br/>
-     
-    {viewContent.map((viewContent) => {
-        return(
-          <div key={posters.content}>
-            <img src={viewContent.poster_img} alt={viewContent.picture}/>
-            <h2>{viewContent.description}</h2>
-            <h3>{viewContent.date}</h3>
-            <br/><br/>
-            <h2>{viewContent.memory}</h2>
-            <img src={viewContent.images} alt={viewContent.pictures}/>
+      <br /> <br />
 
-          </div>
-        
-        );     
-    
-        <div>
-        <button onClick={toArchive} className="btn">Back</button>
+      {viewContent.map((poster) => (
+        <div key={poster.id}>
+          <img src={poster.poster_img} alt={poster.picture} />
+          <h2>{poster.description}</h2>
+          <h3>{poster.date}</h3>
+          <br /><br />
+          <h2>{poster.memory}</h2>
+          <img src={poster.images} alt={poster.pictures} />
         </div>
-    })};
+      ))}
 
-      
- 
-
+      <button onClick={toArchive} className="btn">
+        Back
+      </button>
+    </div>
+  );
+}
 
 export default ViewPoster;

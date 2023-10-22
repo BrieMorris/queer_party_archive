@@ -37,7 +37,7 @@ const viewPosterContent = (state = [], action) => {
   switch (action.type) {
     case 'VIEW_POSTER_CONTENT':
       return action.payload;
-    case 'VIEW_POSTER_CONTENT':
+    case 'UNVIEW_POSTER_CONTENT':
       return [];
     default:
       return state;

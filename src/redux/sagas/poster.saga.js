@@ -37,7 +37,6 @@ function* displayPoster(action) {
     try {
       yield axios.get(`/api/viewContent/${action.payload.poster_id}`);
       yield put({ type: 'VIEW_POSTER_CONTENT', payload: action.payload });
-
     } catch (error) {
         console.log('error posting observation', error);
     }    
