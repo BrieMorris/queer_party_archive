@@ -40,13 +40,13 @@ function Archive (props) {
       <h2>{heading}</h2>
       <h3>There will be images of posters</h3>
 
-        {posterList.map( posters => {
+        {posterList.map(posters => {
           return(
             <div key={posters.id}>
-              <img src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
+              <img key={1} src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
               <br/>  <br/>
-              <button onClick={addContent} className="btn">ADD</button>
-              <button onClick={viewPoster} className="btn">VIEW</button>
+              <button key={2} onClick={addContent} className="btn">ADD</button>
+              <button key={3} onClick={viewPoster} className="btn">VIEW</button>
             </div>
           )
         })}

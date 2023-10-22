@@ -14,29 +14,46 @@ function ViewPoster(props) {
   const store = useSelector((store) => store);
   const history = useHistory();
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
-  const viewContent = useSelector(store => store.posterReducer.viewPosterContent);
   const dispatch = useDispatch();
-
-
+  const viewContent = useSelector(store => store.posterReducer.viewPosterContent);
+  console.log(viewContent);
+  
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER' });
 }, []);
   
   const toArchive = (event) => {
     history.push('/archive')
-  }
+  };
+
+
 
   return (
-    <div>
+    <div className="container">
       <h2>{heading}</h2>
       <br/> <br/>
-      <div key={user.id}>
+     
+    {viewContent.map((viewContent) => {
+        return(
+          <div key={posters.content}>
+            <img src={viewContent.poster_img} alt={viewContent.picture}/>
+            <h2>{viewContent.description}</h2>
+            <h3>{viewContent.date}</h3>
+            <br/><br/>
+            <h2>{viewContent.memory}</h2>
+            <img src={viewContent.images} alt={viewContent.pictures}/>
 
+          </div>
+        
+        );     
+    
+        <div>
+        <button onClick={toArchive} className="btn">Back</button>
+        </div>
+    })};
 
-      </div>
-       <button onClick={toArchive} className="btn">Back</button>
-    </div>
-  );
-}
+      
+ 
+
 
 export default ViewPoster;

@@ -32,10 +32,12 @@ function* displayPoster(action) {
   }
   
   //saga function to view content of posters using db
+  //first ask server if ther is poster_content
   function* viewPosterContent(action) {
     try {
-      yield axios.post('/api/viewContent', action.payload);
+      yield axios.get(`/api/viewContent/${action.payload.poster_id}`);
       yield put({ type: 'VIEW_POSTER_CONTENT', payload: action.payload });
+
     } catch (error) {
         console.log('error posting observation', error);
     }    
