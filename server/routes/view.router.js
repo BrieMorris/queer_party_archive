@@ -7,7 +7,9 @@ const router = express.Router();
 
 
 router.get('/posters', (req, res) => {
-  const queryText = `SELECT * FROM posters;`
+  const queryText = `SELECT *
+  FROM posters
+  FULL JOIN poster_content ON posters.id = poster_content.poster_id;`
 
   pool.query(queryText)
    .then(result => {
@@ -19,18 +21,7 @@ router.get('/posters', (req, res) => {
    })
 });
 
-router.get('/poster_content', (req, res) => {
-  const queryText = `SELECT * FROM poster_content;`
 
-  pool.query(queryText)
-   .then(result => {
-    res.send(result.rows);
-   })
-   .catch(err => {
-    console.log('ERROR; Get view poster content');
-    res.sendStatus(500)
-   })
-});
 
 
 //   const queryText = `SELECT 
