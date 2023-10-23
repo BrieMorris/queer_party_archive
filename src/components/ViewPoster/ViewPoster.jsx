@@ -15,7 +15,7 @@ function ViewPoster(props) {
   const history = useHistory();
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
   const dispatch = useDispatch();
-  const viewContent = useSelector(store => store.posterReducer.viewPosterContent);
+  const poster = useSelector(store => store.posterReducer.viewPosterContent);
   console.log(viewContent);
   
   useEffect(() => {
@@ -33,7 +33,7 @@ function ViewPoster(props) {
       <h2>{heading}</h2>
       <br /> <br />
 
-      {viewContent.map((poster) => (
+     
         <div key={poster.id}>
           <img src={poster.poster_img} alt={poster.picture} />
           <h2>{poster.description}</h2>
@@ -42,7 +42,7 @@ function ViewPoster(props) {
           <h2>{poster.memory}</h2>
           <img src={poster.images} alt={poster.pictures} />
         </div>
-      ))}
+  
 
       <button onClick={toArchive} className="btn">
         Back

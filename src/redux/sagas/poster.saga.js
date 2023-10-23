@@ -4,7 +4,8 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 //saga function to diplay posters in archive using db
 function* displayPoster(action) {
     try {
-        const posterResponse = yield axios.get(`/api/poster`);
+        const posterResponse = 
+        yield axios.get(`/api/poster`);
         yield put({ type: 'SET_ALL_POSTERS', payload: posterResponse.data});
     } catch (error) {
         console.log(error);
@@ -37,6 +38,7 @@ function* displayPoster(action) {
     try {
       yield axios.get(`/api/viewContent/${action.payload.poster_id}`);
       yield put({ type: 'VIEW_POSTER_CONTENT', payload: action.payload });
+      console.log('paylaod', action.payload);
     } catch (error) {
         console.log('error posting observation', error);
     }    

@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 
-
+//change to not show id twice 
 router.get('/posters', (req, res) => {
   const queryText = `SELECT *
   FROM posters

@@ -20,12 +20,13 @@ function Archive (props) {
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_POSTERS' });
 }, []);
-
+                                        
   const addContent = (event) => {
     history.push('/addContent')
   }
 
-  const viewPoster = (event) => {
+  const viewPoster = (event, posters) => {
+    dispatch({ type: 'VIEW_POSTER', payload: posters })
     history.push('/viewPoster')
   }
   
@@ -46,7 +47,7 @@ function Archive (props) {
               <img key={1} src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
               <br/>  <br/>
               <button key={2} onClick={addContent} className="btn">ADD</button>
-              <button key={3} onClick={viewPoster} className="btn">VIEW</button>
+              <button key={3} onClick={(event, posters) => viewPoster(event, posters)} className="btn">VIEW</button>
             </div>
           )
         })}
