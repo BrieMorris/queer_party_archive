@@ -16,7 +16,7 @@ function ViewPoster(props) {
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
   const dispatch = useDispatch();
   const poster = useSelector(store => store.posterReducer.viewPosterContent);
-  console.log(viewContent);
+  console.log(poster);
   
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER' });

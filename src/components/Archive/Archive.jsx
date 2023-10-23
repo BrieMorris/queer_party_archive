@@ -25,8 +25,9 @@ function Archive (props) {
     history.push('/addContent')
   }
 
+  //I need to call the specific poster id I am clicking on for it to access all the content from DB
   const viewPoster = (event, posters) => {
-    dispatch({ type: 'VIEW_POSTER', payload: posters })
+    dispatch({ type: 'VIEW_POSTER', payload: `${poster.id}` })
     history.push('/viewPoster')
   }
   
