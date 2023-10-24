@@ -9,7 +9,7 @@ function Archive (props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('ARCHIVE');
+  const [heading, setHeading] = useState('ARCHIVE');        
   const history = useHistory();
   const dispatch = useDispatch();
   const posterList = useSelector(store => store.posterReducer.displayPoster);
@@ -25,7 +25,7 @@ function Archive (props) {
     history.push('/addContent')
   }
 
-  //I need to call the specific poster id I am clicking on for it to access all the content from DB
+  //change poster.id
   const viewPoster = (event, posters) => {
     dispatch({ type: 'VIEW_POSTER', payload: `${poster.id}` })
     history.push('/viewPoster')
@@ -37,20 +37,22 @@ function Archive (props) {
     img.height = newHeight;
   }
 
+
+
   return (
     <div className="container">
       <h2>{heading}</h2>
-      <h3>There will be images of posters</h3>
-
+        {console.log('poster list', posterList)}
         {posterList.map(posters => {
-          return(
-            <div key={posters.id}>
-              <img key={1} src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
+            return (
+            <div key={posters.poster_img}>
+              {console.log('posters id', posters.poster_img)}
+              <img src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
               <br/>  <br/>
-              <button key={2} onClick={addContent} className="btn">ADD</button>
-              <button key={3} onClick={(event, posters) => viewPoster(event, posters)} className="btn">VIEW</button>
+              <button onClick={addContent} className="btn">ADD</button>
+              <button  onClick={(event, posters) => viewPoster(event, posters)} className="btn">VIEW</button>
             </div>
-          )
+            )
         })}
      
     </div>
