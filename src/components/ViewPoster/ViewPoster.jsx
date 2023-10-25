@@ -12,18 +12,18 @@ import { useEffect } from 'react';
 function ViewPoster(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+ 
   const history = useHistory();
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
   const dispatch = useDispatch();
   const poster = useSelector(store => store.posterReducer.viewPosterContent);
-  console.log(poster);
+  console.log('POSTER', poster);
 
   const {id} = useParams();
   console.log('use params', id);
   
   useEffect(() => {
-    dispatch({ type: 'VIEW_POSTER' });
+    dispatch({ type: 'VIEW_POSTER', payload: id });
 }, []);
   
   const toArchive = (event) => {

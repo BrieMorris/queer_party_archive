@@ -32,33 +32,17 @@ function* displayPoster(action) {
   
   // saga function to view content of posters using db
   // first ask server if ther is poster_content
-  function* viewPosterContent(action) {
+  function* viewPosterContent({payload}) {
+    console.log('payload', payload);
     try {
-      yield axios.get(`/api/viewContent/${action.payload.poster_id}`);
-      yield put({ type: 'VIEW_POSTER_CONTENT', payload: action.payload });
-      console.log('paylaod', action.payload);
+      yield axios.get('/api/viewContent/', {id: payload});
+      yield put({ type: 'VIEW_POSTER_CONTENT', payload });
+      console.log('paylaod', payload);
     } catch (error) {
         console.log('error posting observation', error);
     }    
   }
-  // function* viewPosterContent(action) {
-  //   try {
-  //     const response = yield axios.get(`/api/viewContent/${action.payload.poster_id}`);
-  //     const data = response.data;
-      
-  //     // Check if the response contains the expected data structure
-  //     if (data && data.content) {
-  //       yield put({ type: 'VIEW_POSTER_CONTENT', payload: data.content });
-  //     } else {
-  //       // Handle the case where the response structure is unexpected
-  //       yield put({ type: 'VIEW_POSTER_CONTENT_ERROR', payload: 'Unexpected response format' });
-  //     }
-  //   } catch (error) {
-  //     // Dispatch an error action with a meaningful message
-  //     yield put({ type: 'VIEW_POSTER_CONTENT_ERROR', payload: 'Error fetching poster content' });
-  //     console.log('Error fetching poster content', error);
-  //   }
-  // }
+  
   
  
 
