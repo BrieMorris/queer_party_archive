@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function Archive (props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+ 
   const [heading, setHeading] = useState('ARCHIVE');        
   const history = useHistory();
   const dispatch = useDispatch();
@@ -26,10 +26,12 @@ function Archive (props) {
   }
 
   //change poster.id
-  const viewPoster = (event, posters) => {
-    dispatch({ type: 'VIEW_POSTER', payload: `${poster.id}` })
-    history.push('/viewPoster')
+  const viewPoster = (posters) => {
+    console.log('posters', posters);
+    history.push(`/viewPoster${posters.id}`)
+    
   }
+  console.log('posterList', posterList);
   
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
@@ -45,12 +47,12 @@ function Archive (props) {
         {console.log('poster list', posterList)}
         {posterList.map(posters => {
             return (
-            <div key={posters.poster_img}>
-              {console.log('posters id', posters.poster_img)}
+            <div key={posters.id}>
+              {console.log('posters id', posters.id)}
               <img src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
               <br/>  <br/>
               <button onClick={addContent} className="btn">ADD</button>
-              <button  onClick={(event, posters) => viewPoster(event, posters)} className="btn">VIEW</button>
+              <button  onClick={() => viewPoster(posters)} className="btn">VIEW</button>
             </div>
             )
         })}

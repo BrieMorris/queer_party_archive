@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {useSelector, useDispatch,} from 'react-redux';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect } from 'react';
+
 
 
 
@@ -17,6 +18,9 @@ function ViewPoster(props) {
   const dispatch = useDispatch();
   const poster = useSelector(store => store.posterReducer.viewPosterContent);
   console.log(poster);
+
+  const {id} = useParams();
+  console.log('use params', id);
   
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER' });

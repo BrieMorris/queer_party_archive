@@ -16,7 +16,6 @@ function* displayPoster(action) {
   function* addPosters(action) {
     try {
       yield axios.post('/api/addPoster', action.payload);
-      yield put({ type: 'ADD_POSTER', payload: action.payload });
     } catch (error) {
         console.log('error adding poster', error);
     }    
@@ -26,7 +25,6 @@ function* displayPoster(action) {
   function* addPosterContent(action) {
     try {
       yield axios.post('/api/posterContent', action.payload);
-      yield put({ type: 'ADD_POSTER_CONTENT', payload: action.payload });
     } catch (error) {
         console.log('error posting observation', error);
     }    
