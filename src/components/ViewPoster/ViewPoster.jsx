@@ -4,19 +4,14 @@ import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min
 import { useEffect } from 'react';
 
 
-
-
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+//ViewPoster allows user to view all the uploaded content for a specific poster
 function ViewPoster(posters) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
- 
+  
   const history = useHistory();
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
+  
   const [thisPoster, setThisPoster] = useState(
-    {id: 0, 
+    {poster_id: 0, 
     poster_img: '',
     description: '',
     date: 0,
@@ -36,13 +31,14 @@ function ViewPoster(posters) {
   
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER', payload: id });
-    setThisPoster({id: poster[0].poster_id , 
+    setThisPoster({poster_id: poster[0].poster_id , 
       poster_img: poster[0].poster_img,
       description: poster[0].description,
       date: poster[0].date,
       memory: poster[0].memory,
       images: poster[0].images
     } )
+    
 }, []);
 
   
@@ -50,20 +46,27 @@ function ViewPoster(posters) {
     history.push('/archive')
   };
 
+  console.log('this poster', thisPoster);
+
+  function resizeImg(img, newWidth, newHeight) {
+    // Set the new width and height for the image
+    img.width = newWidth;
+    img.height = newHeight;
+  }
 
 
   return (
     <div className="container">
       <h2>{heading}</h2>
       <br /> <br />
-
+    {console.log('THIS poster', thisPoster)}
         <div key={thisPoster.id}>
-          <img src={thisPoster.poster_img} alt={thisPoster.picture} />
+          <img src={`images/${thisPoster.poster_img}`}  onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={thisPoster.picture} />
           <h2>{thisPoster.description}</h2>
           <h3>{thisPoster.date}</h3>
           <br /><br />
           <h2>{thisPoster.memory}</h2>
-          <img src={thisPoster.images} alt={thisPoster.pictures} />
+          <img src={`images/${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={thisPoster.pictures} />
         </div>
   
 
