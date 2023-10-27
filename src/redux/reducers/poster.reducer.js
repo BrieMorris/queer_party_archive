@@ -13,8 +13,10 @@ const displayPoster = (state = [], action) => {
 
 
 const viewPosterContent = (state = [], action) => {
+
   switch (action.type) {
     case 'VIEW_POSTER_CONTENT':
+      console.log('poster id', action.payload);
       return action.payload;
     case 'UNVIEW_POSTER_CONTENT':
       return [];

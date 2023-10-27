@@ -35,7 +35,7 @@ function* displayPoster(action) {
   function* viewPosterContent({payload}) {
     console.log('payload', payload);
     try {
-      yield axios.get('/api/viewContent/', {id: payload});
+      yield axios.get('/api/viewContent/'+ payload);
       yield put({ type: 'VIEW_POSTER_CONTENT', payload });
       console.log('paylaod', payload);
     } catch (error) {

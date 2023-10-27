@@ -19,8 +19,8 @@ function ViewPoster(props) {
   const poster = useSelector(store => store.posterReducer.viewPosterContent);
   console.log('POSTER', poster);
 
-  const {id} = useParams();
-  console.log('use params', id);
+  // const {id} = useParams();
+  // console.log('use params', id);
   
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER', payload: id });

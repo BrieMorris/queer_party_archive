@@ -26,10 +26,14 @@ function Archive (props) {
   }
 
   //change poster.id
+  // const viewPoster = (id) => {
+  //   console.log('posters', posters);
+  //   history.push(`/viewPoster/${id}`)
+  // }
+
   const viewPoster = (posters) => {
     console.log('posters', posters);
-    history.push(`/viewPoster${posters.id}`)
-    
+    history.push(`/viewPoster`) 
   }
   console.log('posterList', posterList);
   
@@ -52,7 +56,8 @@ function Archive (props) {
               <img src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
               <br/>  <br/>
               <button onClick={addContent} className="btn">ADD</button>
-              <button  onClick={() => viewPoster(posters)} className="btn">VIEW</button>
+              {/* added .id */}
+              <button  onClick={() => viewPoster(posters.id)} className="btn">VIEW</button>
             </div>
             )
         })}

@@ -6,16 +6,16 @@ const router = express.Router();
 
 
 //change to not show id twice 
-router.get('/', (req, res) => {
-  console.log(req.body);
+router.get('/:id', (req, res) => {
+  console.log('params', req.params);
+  let id = req.params.id;
+  //not sure if this where id is working correctly add to end WHERE id=$1 ?
   const queryText = `SELECT *
   FROM posters
   FULL JOIN poster_content ON posters.id = poster_content.poster_id
-  WHERE id=$1;`
+  WHERE posters.id=`+id;
 console.log('queryText', queryText);
-const id = req.body.id 
-console.log('req', req.data.id);
-  pool.query(queryText, id )
+  pool.query(queryText)
 
    .then(result => {
     res.send(result.rows);
@@ -28,26 +28,5 @@ console.log('req', req.data.id);
 });
 
 
-
-
-//   const queryText = `SELECT 
-//   p.user_id,
-//   p.poster_img,
-//   p.description,
-//   p.date,
-//   pc.images,
-//   pc.memory
-// FROM
-//   posters p
-// JOIN
-//   poster_content pc ON p.id = pc.poster_id;`
-/**
- * POST route template
- */
-// router.post('/', (req, res) => {
-//   console.log(req.body);
-//   const viewPoster = `INSERT INTO posters (user_id, poster_img, description, date)
-//   VALUES (user_id_value, 'poster_img_value', 'description_value', 'date_value');`
-// });
 
 module.exports = router;
