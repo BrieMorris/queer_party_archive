@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 
 const posterRouter = require('./routes/poster.router');
 const viewRouter = require('./routes/view.router')
+const cloudinaryRouter = require('./routes/cloudinary.router');
 
 
 
@@ -30,6 +31,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/poster', posterRouter);
 app.use('/api/viewContent', viewRouter);
+app.use('/api/cloudinary', cloudinaryRouter);
 
 
 // Serve static files

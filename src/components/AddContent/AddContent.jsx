@@ -8,12 +8,19 @@ function AddContent(props) {
   const [heading, setHeading] = useState('You may add an image and a memory to this event poster.');
   const history = useHistory();
   const dispatch = useDispatch();
-
   const add = useSelector(store => store.posterReducer.addPosterContent);
   console.log('add', add);
+  const [contentData, setContentData]  = useState //finish 
+  //set up memory to hold form data - refernce feedback loop
 
   useEffect(() => {
-    dispatch({ type: 'ADD_POSTER_INFO' });
+    const imageData = new FormData();
+      imageData.append('file', fileToUpload);
+      imageData.append('upload_preset', process.env.REACT_APP_PRESET);
+    dispatch({ type: 'UPLOAD_IMAGE', payload: {
+      imageData: imageData,
+      contentData: contentData
+    } });
 }, []);
  
   
@@ -22,7 +29,7 @@ function AddContent(props) {
   }
 
   return (
-    <div>
+    <div className="container">
       <h2>{heading}</h2>
       <h3>Remeber these are public. Please don't tell on yourself or your friends.</h3>
         <br/>  <br/>

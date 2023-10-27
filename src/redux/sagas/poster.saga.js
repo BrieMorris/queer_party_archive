@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
+
 //saga function to diplay posters in archive using db
 function* displayPoster(action) {
     try {
@@ -21,6 +22,19 @@ function* displayPoster(action) {
     }    
   }
   
+  // restrcture this so the put doesn't just go to add_poster_info it will all need to add_poster - you must differenciate adding a poster vs content 
+  function* addImageCloudinary(action){
+    try {
+      const imgURL =yield axios.post('/api/cloudinary', action.payload.imageData);
+      const contentData = yield { ...action.payload.contentData, 
+        imgURL: imgURL,
+      }
+      yield put ({ type: 'ADD_POSTER_INFO', payload: contentData })
+    } catch (error) {
+        console.log('error posting observation', error);
+    }    
+    
+  }
   //saga function to add content to posters using db
   function* addPosterContent(action) {
     try {
@@ -29,6 +43,8 @@ function* displayPoster(action) {
         console.log('error posting observation', error);
     }    
   }
+
+  
   
   // saga function to view content of posters using db
   // first ask server if ther is poster_content
@@ -50,6 +66,7 @@ function* displayPoster(action) {
   function* posterSaga() {
     yield takeEvery('FETCH_ALL_POSTERS', displayPoster);
     yield takeEvery('POSTER_ADD', addPosters);
+    yield takeEvery('UPLOAD_IMAGE', addImageCloudinary);
     yield takeEvery('ADD_POSTER_INFO', addPosterContent);
     yield takeEvery('VIEW_POSTER', viewPosterContent);
   }

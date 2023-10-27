@@ -18,12 +18,6 @@ function Archive (props) {
     history.push('/addContent')
   }
 
-  //change poster.id
-  // const viewPoster = (id) => {
-  //   console.log('posters', posters);
-  //   history.push(`/viewPoster/${id}`)
-  // }
-
   const viewPoster = (posters) => {
     console.log('posters', posters);
     history.push(`/viewPoster/`+ posters) 
@@ -35,8 +29,6 @@ function Archive (props) {
     img.width = newWidth;
     img.height = newHeight;
   }
-
-
 
   return (
     <div className="container">
