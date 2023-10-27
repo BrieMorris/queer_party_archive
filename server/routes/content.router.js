@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route for all posters appearing in the Archive
  */
 router.get('/', (req, res) => {
-  const queryText = `SELECT id, poster_img FROM posters; `
+  const queryText = `SELECT `
   pool.query(queryText)
    .then(result => {
     res.send(result.rows);
@@ -18,13 +18,12 @@ router.get('/', (req, res) => {
 });
 
 /**
- * POST route template
+ * POST 
  */
 router.post('/', (req, res) => {
   console.log(req.body);
-  const showInArchive = `
-  INSERT INTO "posters" ("user_id", "poster_img", "description", "date")
-  VALUES ($1, $2, $3, $4);`
+  const addContent = `INSERT INTO
+  `
 });
 
 module.exports = router;

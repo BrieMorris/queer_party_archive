@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 });
 
 /**
- * POST route template
+ * POST 
  */
 router.post('/', (req, res) => {
   console.log(req.body);

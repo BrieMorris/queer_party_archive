@@ -47,7 +47,6 @@ function* displayPoster(action) {
   
   
   // saga function to view content of posters using db
-  // first ask server if ther is poster_content
   function* viewPosterContent(action) {
     console.log('action', action.payload);
     try {

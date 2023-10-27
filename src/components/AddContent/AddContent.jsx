@@ -10,8 +10,10 @@ function AddContent(props) {
   const dispatch = useDispatch();
   const add = useSelector(store => store.posterReducer.addPosterContent);
   console.log('add', add);
-  const [contentData, setContentData]  = useState //finish 
-  //set up memory to hold form data - refernce feedback loop
+  const [contentData, setContentData]  = useState({
+    images: images,
+    memory: memory,
+  });
 
   useEffect(() => {
     const imageData = new FormData();
