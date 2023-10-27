@@ -12,7 +12,13 @@ const displayPoster = (state = [], action) => {
 };
 
 
-const viewPosterContent = (state = [], action) => {
+const viewPosterContent = (state = [  {id: 0, 
+  poster_img: '',
+  description: '',
+  date: 0,
+  memory: '',
+  images: ''
+}], action) => {
 
   switch (action.type) {
     case 'VIEW_POSTER_CONTENT':
