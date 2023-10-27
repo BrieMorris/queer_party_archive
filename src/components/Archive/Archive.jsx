@@ -33,7 +33,7 @@ function Archive (props) {
 
   const viewPoster = (posters) => {
     console.log('posters', posters);
-    history.push(`/viewPoster`) 
+    history.push(`/viewPoster/`+ posters) 
   }
   console.log('posterList', posterList);
   

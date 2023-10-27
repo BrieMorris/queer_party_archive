@@ -87,7 +87,7 @@ function App() {
           <ProtectedRoute
             // navigated from archive to view poster content
             exact
-            path="/viewPoster:id"
+            path="/viewPoster/:id"
 
           >
             <ViewPoster />

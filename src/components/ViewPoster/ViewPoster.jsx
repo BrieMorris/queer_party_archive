@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
-function ViewPoster(props) {
+function ViewPoster(posters) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
  
@@ -19,8 +19,8 @@ function ViewPoster(props) {
   const poster = useSelector(store => store.posterReducer.viewPosterContent);
   console.log('POSTER', poster);
 
-  // const {id} = useParams();
-  // console.log('use params', id);
+  const {id} = useParams();
+  console.log('use params', id);
   
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER', payload: id });
@@ -37,7 +37,6 @@ function ViewPoster(props) {
       <h2>{heading}</h2>
       <br /> <br />
 
-     
         <div key={poster.id}>
           <img src={poster.poster_img} alt={poster.picture} />
           <h2>{poster.description}</h2>
