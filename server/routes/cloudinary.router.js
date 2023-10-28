@@ -3,8 +3,9 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 
+
 /**
- * POST route template
+ * POST for uploading image to cloudinary
  */
 router.post('/', (req, res) => {
   console.log(req.body);

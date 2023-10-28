@@ -13,7 +13,7 @@ const userRouter = require('./routes/user.router');
 const posterRouter = require('./routes/poster.router');
 const viewRouter = require('./routes/view.router')
 const cloudinaryRouter = require('./routes/cloudinary.router');
-const contentRouter = require('./routes/content')
+const contentRouter = require('./routes/content.router')
 
 
 
