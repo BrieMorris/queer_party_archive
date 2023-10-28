@@ -11,43 +11,22 @@ function ViewPoster(posters) {
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
   const dispatch = useDispatch();
   
-  const [thisPoster, setThisPoster] = useState(
-    {poster_id: 0, 
-    poster_img: '',
-    description: '',
-    date: 0,
-    memory: '',
-    images: ''
-  } );
 
-  
+  //change this to poster content
   const poster = useSelector(store => store.posterReducer.viewPosterContent);
-  console.log('POSTER', poster);
-  console.log('POSTER', poster[0]);
 
   const {id} = useParams();
-  console.log('use params', id);
-
-  
   
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER', payload: id });
-    setThisPoster({poster_id: poster[0].poster_id , 
-      poster_img: poster[0].poster_img,
-      description: poster[0].description,
-      date: poster[0].date,
-      memory: poster[0].memory,
-      images: poster[0].images
-    } )
     
-}, []);
+    
+}, [id]);
 
   
   const toArchive = (event) => {
     history.push('/archive')
   };
-
-  console.log('this poster', thisPoster);
 
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
@@ -59,17 +38,18 @@ function ViewPoster(posters) {
   return (
     <div className="container">
       <h2>{heading}</h2>
+      {/* to do break apart - do two gets one for poster and one for poster watch part 2 of the movie saga live solve */}
+       <img src={`images/${poster[0].poster_img}`}  onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={poster[0].picture} />
+       <h2>{poster[0].description}</h2>
       <br /> <br />
-    {console.log('THIS poster', thisPoster)}
+      {poster.map(thisPoster => (
         <div key={thisPoster.id}>
-          <img src={`images/${thisPoster.poster_img}`}  onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={thisPoster.picture} />
-          <h2>{thisPoster.description}</h2>
           <h3>{thisPoster.date}</h3>
           <br /><br />
           <h2>{thisPoster.memory}</h2>
-          <img src={`images/${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={thisPoster.pictures} />
+          <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={thisPoster.pictures} />
         </div>
-  
+      ))};
 
       <button onClick={toArchive} className="btn">
         Back

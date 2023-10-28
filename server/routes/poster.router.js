@@ -18,6 +18,19 @@ router.get('/', (req, res) => {
    })
 });
 
+// needs saga and reducer 
+router.get('/:id', (req, res) => {
+  const queryText = `SELECT * FROM posters WHERE id = $1; `
+  pool.query(queryText, [req.params.id])
+   .then(result => {
+    res.send(result.rows[0]);
+   })
+   .catch(err => {
+    console.log('ERROR; ', err);
+    res.sendStatus(500)
+   })
+});
+
 /**
  * POST 
  */

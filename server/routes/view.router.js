@@ -12,9 +12,9 @@ router.get('/:id', (req, res) => {
   const queryText = `SELECT *
   FROM posters
   FULL JOIN poster_content ON posters.id = poster_content.poster_id
-  WHERE posters.id=`+id;
+  WHERE posters.id= $1`;
 console.log('queryText', queryText);
-  pool.query(queryText)
+  pool.query(queryText, [id])
 
    .then(result => {
     res.send(result.rows);
