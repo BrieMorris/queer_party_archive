@@ -25,6 +25,7 @@ router.post('/', (req, res) => {
   const addContent = `INSERT INTO "posters" ("user_id", "poster_img", "description", "date")
   VALUES ($1, $2, $3, $4)
   `
+  res.send(201)
 });
 
 module.exports = router;

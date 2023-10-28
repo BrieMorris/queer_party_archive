@@ -23,27 +23,27 @@ function* displayPoster(action) {
   }
   
   // restrcture this so the put doesn't just go to add_poster_info it will all need to add_poster - you must differenciate adding a poster vs content 
-  function* addImageCloudinary(action){
+  function* addPosterContent(action){
     try {
-      const imgURL =yield axios.post('/api/cloudinary', action.payload.imageData);
-      const contentData = yield { ...action.payload.contentData, 
-        imgURL: imgURL,
-      }
-      yield put ({ type: 'ADD_POSTER_INFO', payload: contentData })
+      // const imgURL = yield axios.post('/api/cloudinary', action.payload.imageData);
+      // const contentData = yield { ...action.payload.contentData, 
+      //   imgURL: imgURL,
+      // }
+      // yield put ({ type: 'ADD_POSTER_INFO', payload: contentData })
+      const formData = new FormData();
+        formData.append('file', action.fileToUpload);
+        formData.append('upload_preset', process.env.REACT_APP_PRESET);
+        let postUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
+        const response = yield axios.post(postUrl, formData);
+        yield axios.post('/api/content', { ...action.payload, photo: response.data.secure_url});
+        action.toArchive()
     } catch (error) {
         console.log('error posting observation', error);
-    }    
-    
-  }
-  //saga function to add content to posters using db
-  function* addPosterContent(action) {
-    try {
-      yield axios.post('/api/posterContent', action.payload);
-    } catch (error) {
-        console.log('error posting observation', error);
-    }    
+    }     
   }
 
+  //go through and delete 
+  
   
   
   // saga function to view content of posters using db
@@ -65,7 +65,6 @@ function* displayPoster(action) {
   function* posterSaga() {
     yield takeEvery('FETCH_ALL_POSTERS', displayPoster);
     yield takeEvery('POSTER_ADD', addPosters);
-    yield takeEvery('UPLOAD_IMAGE', addImageCloudinary);
     yield takeEvery('ADD_POSTER_INFO', addPosterContent);
     yield takeEvery('VIEW_POSTER', viewPosterContent);
   }

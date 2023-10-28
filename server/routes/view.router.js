@@ -18,7 +18,7 @@ console.log('queryText', queryText);
 
    .then(result => {
     res.send(result.rows);
-    console.log(result.rows);
+  //   console.log(result.rows);
    })
    .catch(err => {
     console.log('ERROR; Get view poster content');
