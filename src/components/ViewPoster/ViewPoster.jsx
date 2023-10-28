@@ -9,6 +9,7 @@ function ViewPoster(posters) {
   
   const history = useHistory();
   const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
+  const dispatch = useDispatch();
   
   const [thisPoster, setThisPoster] = useState(
     {poster_id: 0, 
@@ -19,7 +20,7 @@ function ViewPoster(posters) {
     images: ''
   } );
 
-  const dispatch = useDispatch();
+  
   const poster = useSelector(store => store.posterReducer.viewPosterContent);
   console.log('POSTER', poster);
   console.log('POSTER', poster[0]);
