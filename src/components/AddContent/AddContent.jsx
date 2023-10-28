@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useParams } from 'react-router-dom';
 
 //AddConent() will allow users to add content a specific poster
 function AddContent(props) {
@@ -8,6 +8,7 @@ function AddContent(props) {
   // const [heading, setHeading] = useState('You may add an image and a memory to this event poster.');
   const history = useHistory();
   const dispatch = useDispatch();
+  const {id} = useParams();
   // const add = useSelector(store => store.posterReducer.addPosterContent);
   // console.log('add', add);
   // double check this
@@ -38,7 +39,7 @@ function AddContent(props) {
  
   const addContent = (e) => {
     e.preventDefault();
-    dispatch({ type: 'ADD_POSTER_INFO', payload: { memory: memory }, fileToUpload: image, toArchive})
+    dispatch({ type: 'ADD_POSTER_INFO', payload: { memory: memory, poster_id:id }, fileToUpload: image, toArchive})
   } 
 
   const toArchive = (event) => {

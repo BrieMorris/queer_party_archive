@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     res.send(result.rows);
    })
    .catch(err => {
-    console.log('ERROR; Get get poster img');
+    console.log('ERROR; Get get poster img', err);
     res.sendStatus(500)
    })
 });

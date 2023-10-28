@@ -21,7 +21,7 @@ console.log('queryText', queryText);
   //   console.log(result.rows);
    })
    .catch(err => {
-    console.log('ERROR; Get view poster content');
+    console.log('ERROR; Get view poster content', err);
     res.sendStatus(500)
    })
 });

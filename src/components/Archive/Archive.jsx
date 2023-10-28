@@ -14,8 +14,8 @@ function Archive (props) {
     dispatch({ type: 'FETCH_ALL_POSTERS' });
 }, []);
                                         
-  const addContent = (event) => {
-    history.push('/addContent')
+  const addContent = (id) => {
+    history.push('/addContent/' + id)
   }
 
   const viewPoster = (posters) => {
@@ -40,7 +40,7 @@ function Archive (props) {
               {console.log('posters id', posters.id)}
               <img src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
               <br/>  <br/>
-              <button onClick={addContent} className="btn">ADD</button>
+              <button onClick={() => addContent(posters.id)} className="btn">ADD</button>
               {/* added .id */}
               <button  onClick={() => viewPoster(posters.id)} className="btn">VIEW</button>
             </div>

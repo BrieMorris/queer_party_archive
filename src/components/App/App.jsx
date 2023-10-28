@@ -96,7 +96,7 @@ function App() {
           <ProtectedRoute
             // navigated from archive to view poster content
             exact
-            path="/addContent"
+            path="/addContent/:id"
 
           >
             <AddContent />
