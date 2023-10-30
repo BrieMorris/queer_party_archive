@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
 });
 
 // needs saga and reducer 
+//Get to add event poster
 router.get('/:id', (req, res) => {
   const queryText = `SELECT * FROM posters WHERE id = $1; `
   pool.query(queryText, [req.params.id])
@@ -32,7 +33,7 @@ router.get('/:id', (req, res) => {
 });
 
 /**
- * POST 
+ * POST to save event poster to db
  */
 router.post('/', (req, res) => {
   console.log(req.body);

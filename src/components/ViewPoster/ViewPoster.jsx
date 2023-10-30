@@ -49,7 +49,7 @@ function ViewPoster(posters) {
           <h2>{thisPoster.memory}</h2>
           <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={thisPoster.pictures} />
         </div>
-      ))};
+      ))}
 
       <button onClick={toArchive} className="btn">
         Back

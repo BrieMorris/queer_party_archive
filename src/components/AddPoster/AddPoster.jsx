@@ -2,23 +2,42 @@ import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
-function AddPoster(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const [heading, setHeading] = useState('Add the Event Poster');
+// AddPoster() allows user to upload poster & info to Archive
+function AddPster(props) {
+  
   const history = useHistory();
-  const poster = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const {id} = useParams();
+  
+  const [image, setImage] = useState();
+  const [memory, setMemory] = useState('');
+
+  const onFileChange = async (event) => {
+    // Access the selected file
+    const fileToUpload = event.target.files[0];
+
+    // Limit to specific file types.
+    const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+
+    // Check if the file is one of the allowed types.
+    if (acceptedImageTypes.includes(fileToUpload.type)) {
+      setImage(fileToUpload);
+    } else {
+      alert('Please select an image');
+    }
+  }
+ 
+  const addContent = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'ADD_POSTER_INFO', payload: { memory: memory, poster_id:id }, fileToUpload: image, toArchive})
+  } 
 
   const toArchive = (event) => {
     history.push('/archive')
   }
-
   return (
     <div className="container">
-      <h1>{heading}</h1>
+      <h1>Add the Event Poster</h1>
       {/* make the h2 a dialogue box check list */}
       <h2>CHECK before you are the poster:
         <br></br>

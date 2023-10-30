@@ -5,23 +5,13 @@ import { useHistory, useParams } from 'react-router-dom';
 //AddConent() will allow users to add content a specific poster
 function AddContent(props) {
   
-  // const [heading, setHeading] = useState('You may add an image and a memory to this event poster.');
   const history = useHistory();
   const dispatch = useDispatch();
   const {id} = useParams();
-  // const add = useSelector(store => store.posterReducer.addPosterContent);
-  // console.log('add', add);
-  // double check this
+  
   const [image, setImage] = useState();
   const [memory, setMemory] = useState('');
 
-  // const [contentData, setContentData]  = useState({
-  //   images: images,
-  //   memory: memory,
-  // });
-
-
-  //what is the paylload to call image data and content data onChnge
   const onFileChange = async (event) => {
     // Access the selected file
     const fileToUpload = event.target.files[0];
