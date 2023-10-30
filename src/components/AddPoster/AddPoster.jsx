@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import React, { useState, useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
+
 
 // AddPoster() allows user to upload poster & info to Archive
-function AddPster(props) {
+function AddPoster(props) {
   
   const history = useHistory();
   const dispatch = useDispatch();
   const {id} = useParams();
   
   const [image, setImage] = useState();
-  const [memory, setMemory] = useState('');
+  const [description, setdescription] = useState('');
+
+  const [date, setDate] = useState('');
 
   const onFileChange = async (event) => {
     // Access the selected file
@@ -27,38 +30,68 @@ function AddPster(props) {
     }
   }
  
-  const addContent = (e) => {
+  const addPoster = (e) => {
     e.preventDefault();
-    dispatch({ type: 'ADD_POSTER_INFO', payload: { memory: memory, poster_id:id }, fileToUpload: image, toArchive})
+    dispatch({ type: 'POSTER_ADD', payload: { description: description, date: date, poster_id:id }, fileToUpload: image, toArchive})
   } 
 
   const toArchive = (event) => {
     history.push('/archive')
   }
+
   return (
     <div className="container">
       <h1>Add the Event Poster</h1>
       {/* make the h2 a dialogue box check list */}
-      <h2>CHECK before you are the poster:
+      <h2>CHECK before you add the poster:
         <br></br>
         <ul>I double checked this poster id NOT on the site yet!</ul>
         <ul>This party has been over for at least 24 hours.</ul>
         <ul>Poster does NOT include perosnal info like an address or phone number.</ul>
       </h2>
-      
-      <h2>Add Poster</h2>
-      <input type="text" placeholder="poster image url"/>
-
+        <br/>  <br/>
+      <h3>Add Poster Image:</h3> 
+      <form onSubmit = {addPoster}>
+      <input  type="file" 
+              accept="image/*" 
+              onChange={onFileChange}
+              placeholder="image url"/>
+          <br/>
+      <br/>  <br/>
       <h3>Description of Event</h3>
-      <input type="text" placeholder="add description"/>
-
+      <input onChange={(e) => setdescription(e.target.value)} type="text" placeholder="add description"/>
       <h3>Date of Event</h3>
-      <input type="text" placeholder="event date"/>
-      <br/> <br/>
-      {/* store to posters database & go back to archive page */}
-      <button onClick={toArchive} className="btn">ADD</button>
+      <input onChange={(e) => setdate(e.target.value)} type="text" placeholder="add date"/>
+      <br/>  <br/>
+      <button className="btn">ADD Poster</button>
+      </form>
     </div>
   );
+
+  // return (
+  //   <div className="container">
+      // <h1>Add the Event Poster</h1>
+      // {/* make the h2 a dialogue box check list */}
+      // <h2>CHECK before you add the poster:
+      //   <br></br>
+      //   <ul>I double checked this poster id NOT on the site yet!</ul>
+      //   <ul>This party has been over for at least 24 hours.</ul>
+      //   <ul>Poster does NOT include perosnal info like an address or phone number.</ul>
+      // </h2>
+      
+  //     <h2>Add Poster</h2>
+  //     <input type="text" placeholder="poster image url"/>
+
+  //     <h3>Description of Event</h3>
+  //     <input type="text" placeholder="add description"/>
+
+  //     <h3>Date of Event</h3>
+  //     <input type="text" placeholder="event date"/>
+  //     <br/> <br/>
+  //     {/* store to posters database & go back to archive page */}
+  //     <button onClick={toArchive} className="btn">ADD</button>
+  //   </div>
+  // );
 }
 
 export default AddPoster;

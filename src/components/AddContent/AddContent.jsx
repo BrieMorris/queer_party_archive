@@ -39,7 +39,7 @@ function AddContent(props) {
   //add on change to inputs - change into a form
   return (
     <div className="container">
-      {/* <h2>{heading}</h2> */}
+      <h2>Add to Poster</h2>
       <h3>Remeber these are public. Please don't tell on yourself or your friends.</h3>
         <br/>  <br/>
       <h3>Add an image:</h3> 
