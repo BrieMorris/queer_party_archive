@@ -15,11 +15,19 @@ function* displayPoster(action) {
   
   //saga function to add add posters to be displayed in archive using db
   function* addPosters(action) {
-    try {
-      yield axios.post('/api/addPoster', action.payload);
-    } catch (error) {
-        console.log('error adding poster', error);
-    }    
+    try { 
+      const formData = new FormData();
+      formData.append('file', action.fileToUpload);
+      formData.append('upload_preset', process.env.REACT_APP_PRESET);
+      let postUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
+      const response = yield axios.post(postUrl, formData);
+      // or is it yield axios.post('/api/poster',
+      yield axios.post('/api/addPoster', { ...action.payload, photo: response.data.secure_url});
+      action.toArchive()
+  } catch (error) {
+      console.log('error posting observation', error);
+  }     
+       
   }
   
   // restrcture this so the put doesn't just go to add_poster_info it will all need to add_poster - you must differenciate adding a poster vs content 
@@ -42,7 +50,6 @@ function* displayPoster(action) {
     }     
   }
 
-  //go through and delete 
   
   
   
