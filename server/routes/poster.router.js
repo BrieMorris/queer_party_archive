@@ -37,9 +37,18 @@ router.get('/:id', (req, res) => {
  */
 router.post('/', (req, res) => {
   console.log(req.body);
-  const showInArchive = `
+  const queryText = `
   INSERT INTO "posters" ("user_id", "poster_img", "description", "date")
   VALUES ($1, $2, $3, $4);`
+  pool.query(queryText, [req.user.id, req.body.photo, req.body.description, req.body.date])
+  .then(result => {
+   res.sendStatus(201);
+  })
+  .catch(err => {
+   console.log('ERROR; adding poster', err);
+   res.sendStatus(500)
+  })
+
 });
 
 

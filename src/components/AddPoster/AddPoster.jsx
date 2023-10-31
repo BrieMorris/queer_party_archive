@@ -61,7 +61,7 @@ function AddPoster(props) {
       <h3>Description of Event</h3>
       <input onChange={(e) => setdescription(e.target.value)} type="text" placeholder="add description"/>
       <h3>Date of Event</h3>
-      <input onChange={(e) => setdate(e.target.value)} type="text" placeholder="add date"/>
+      <input onChange={(e) => setDate(e.target.value)} type="text" placeholder="add date"/>
       <br/>  <br/>
       <button className="btn">ADD Poster</button>
       </form>

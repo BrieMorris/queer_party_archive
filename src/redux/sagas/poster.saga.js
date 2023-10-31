@@ -22,7 +22,7 @@ function* displayPoster(action) {
       let postUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
       const response = yield axios.post(postUrl, formData);
       // or is it yield axios.post('/api/poster',
-      yield axios.post('/api/addPoster', { ...action.payload, photo: response.data.secure_url});
+      yield axios.post('/api/poster', { ...action.payload, photo: response.data.secure_url});
       action.toArchive()
   } catch (error) {
       console.log('error posting observation', error);
