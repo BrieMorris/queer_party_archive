@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 function ViewPoster(posters) {
   
   const history = useHistory();
-  const [heading, setHeading] = useState('Queers have hopefully added images and memories to this event.');
+  const [heading, setHeading] = useState('View Poster Content:');
   const dispatch = useDispatch();
   
 
@@ -50,6 +50,7 @@ function ViewPoster(posters) {
           <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={thisPoster.pictures} />
         </div>
       ))}
+      <br/><br/><br/><br/>
 
       <button onClick={toArchive} className="btn">
         Back
