@@ -30,14 +30,10 @@ function* displayPoster(action) {
        
   }
   
-  // restrcture this so the put doesn't just go to add_poster_info it will all need to add_poster - you must differenciate adding a poster vs content 
+  // saga to add poster content to specific posters 
   function* addPosterContent(action){
     try {
-      // const imgURL = yield axios.post('/api/cloudinary', action.payload.imageData);
-      // const contentData = yield { ...action.payload.contentData, 
-      //   imgURL: imgURL,
-      // }
-      // yield put ({ type: 'ADD_POSTER_INFO', payload: contentData })
+     
       const formData = new FormData();
         formData.append('file', action.fileToUpload);
         formData.append('upload_preset', process.env.REACT_APP_PRESET);

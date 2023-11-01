@@ -18,7 +18,11 @@ function UserPage() {
       <img></img>
       <h2>Welcome, {user.username}!</h2>
       {/* <p>Your ID is: {user.id}</p> */}
-      <h2>What is the MN Queer Party Archive? </h2>
+      <br/><br/>
+      <h2>What is the MN Queer Party Archive?</h2>
+      <br/> <br/>
+      <h3> The queer party is a space of joy, deliciousness  and debauchery. Identities, art, and community are made on loud dance floors, around the firepit, and in multidisciplinary performances. Many people don’t believe these spaces have always existed. This digital archive’s goal is to capture as much of the weird and queer community for us now and for the future queerdos to see we’ve always been and we always will be. </h3>
+      <br/><br/><br/><br/><br/><br/>
       <button onClick={toInfo} className="btn">Developement Info</button>
     </div>
   );

@@ -38,7 +38,7 @@ function Archive (props) {
             return (
             <div key={posters.id}>
               {console.log('posters id', posters.id)}
-              <img src={`images/${posters.poster_img}`} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" ></img>
+              <img src={posters.poster_img} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" />
               <br/>  <br/>
               <button onClick={() => addContent(posters.id)} className="btn">ADD</button>
               {/* added .id */}

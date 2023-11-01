@@ -39,7 +39,7 @@ function ViewPoster(posters) {
     <div className="container">
       <h2>{heading}</h2>
       {/* to do break apart - do two gets one for poster and one for poster watch part 2 of the movie saga live solve */}
-       <img src={`images/${poster[0].poster_img}`}  onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={poster[0].picture} />
+       <img src={`${poster[0].poster_img}`}  onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={poster[0].picture} />
        <h2>{poster[0].description}</h2>
       <br /> <br />
       {poster.map(thisPoster => (
