@@ -23,8 +23,15 @@ function InfoPage() {
   return (
     <div className="container">
       <h1>{heading}</h1>
-      <h3>MN Queer Party Archive is a space for the MN queer community to archive their parties.  The goal is to allow users to create the archive by allowing them to upload posters from queer events with poster image, description and event date.This application is not a social media tool. It is meant to archive queer community through the weird and wonderful parties that we have. It is not a museum space, instead it’s a community tool where users get to add and manage their own content.  
+      <h3>MN Queer Party Archive is a space for the queer community to archive their parties. The goal is to allow users to create the archive themselves with features that allow them to upload posters from queer events with poster image, description and event date. This application is not a social media tool. It is meant to archive queer community through the weird and wonderful parties that we have. It is not a museum space, instead it’s a community tool where users get to add and manage their own content.  
 </h3>
+    <h4>Technologies Used:
+      <br/> - React
+      <br/> - Redux
+      <br/> - NodeJs
+      <br/> - Express
+      <br/> - Cloudinary
+    </h4>
       <br/>
       <button onClick={toHome} className="btn">Back</button>
     </div>

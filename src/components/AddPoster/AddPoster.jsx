@@ -45,7 +45,7 @@ function AddPoster(props) {
       {/* make the h2 a dialogue box check list */}
       <h2>CHECK before you add the poster:
         <br></br>
-        <ul>I double checked this poster id NOT on the site yet!</ul>
+        <ul>I double checked this poster is NOT on the site yet!</ul>
         <ul>This party has been over for at least 24 hours.</ul>
         <ul>Poster does NOT include perosnal info like an address or phone number.</ul>
       </h2>
