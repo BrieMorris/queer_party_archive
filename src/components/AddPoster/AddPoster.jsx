@@ -68,7 +68,7 @@ function AddPoster(props) {
           <br/>
       <br/>  <br/>
       <h3>Description of Event</h3>
-      <input onChange={(e) => setdescription(e.target.value)} type="text" placeholder="add description"/>
+      <textarea onChange={(e) => setdescription(e.target.value)} type="text" placeholder="add description"/>
       <h3>Date of Event</h3>
       <input onChange={(e) => setDate(e.target.value)} type="text" placeholder="add date"/>
       <br/>  <br/>

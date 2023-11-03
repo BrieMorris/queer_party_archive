@@ -51,7 +51,7 @@ function AddContent(props) {
           <br/>
       <br/>  <br/>
       <h3>Share a memory from the event:</h3>
-      <input onChange={(e) => setMemory(e.target.value)} type="text" placeholder="add memory"/>
+      <textarea onChange={(e) => setMemory(e.target.value)} type="text" placeholder="add memory"/>
       <br/>  <br/>
       <button className="btn">ADD</button>
       </form>
