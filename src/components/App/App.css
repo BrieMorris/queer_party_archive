@@ -56,7 +56,9 @@ Button
 }
 
 .btn:hover {
-  background-color: darkslategray;
+  /* background-color: rgba(236, 9, 65, 0.909); */
+   background-color:#04d9ffca;
+   /* background-color: #66ff00a5; */
   text-decoration: none;
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import IMG_3645 from './IMG_3645.JPG'
 
 //AddConent() will allow users to add content a specific poster
 function AddContent(props) {
@@ -40,6 +41,7 @@ function AddContent(props) {
   return (
     <div className="container">
       <h2>Add to Poster</h2>
+      <img src ={IMG_3645}/>
       <h3>Remeber this is a public archive. Please don't tell on yourself or your friends.</h3>
         <br/>  <br/>
       <h3>Add an image:</h3> 

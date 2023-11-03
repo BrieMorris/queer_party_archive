@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import IMG_3655 from './IMG_3655.JPG'
+// import './Archive.css'; 
 
 //Archive() posts all the poster img and allows user to navigate to acc content or view individual posters
 function Archive (props) {
@@ -51,7 +52,8 @@ function Archive (props) {
         {console.log('poster list', posterList)}
         {posterList.map(posters => {
             return (
-            <div key={posters.id}>
+            
+            <div key={posters.id} class="flex-container">
               {console.log('posters id', posters.id)}
               <img src={posters.poster_img} onLoad={(event) => resizeImg(event.target, 300)} alt="Poster Image" />
               <br/>  <br/>
@@ -59,6 +61,7 @@ function Archive (props) {
               <button  onClick={() => viewPoster(posters.id)} className="btn">VIEW</button>
               <br/>  <br/>
             </div>
+           
             )
         })}
      

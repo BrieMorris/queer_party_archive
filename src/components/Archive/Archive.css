@@ -1,0 +1,15 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap; /* Wrap items to the next row when necessary */
+  justify-content: space-between; /* Adjust the alignment of items within rows */
+
+  /*  Define the width of each column (adjust as needed) */
+  width: 30%; /* You can adjust this value to control the width of the columns */
+  padding: 20px; /* Add some spacing between columns */
+}
+
+/* Style for child elements within the flex container */
+.flex-container img {
+  max-width: 100%; /* Ensure images don't exceed the width of their column */
+}
+

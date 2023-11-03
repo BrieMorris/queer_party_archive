@@ -38,21 +38,28 @@ function ViewPoster(posters) {
   return (
     <div className="container">
       <h1>{heading}</h1>
-       <img src={`${poster[0].poster_img}`}  onLoad={(event) => resizeImg(event.target, 300)}  alt={poster[0].picture} />
+       <img src={`${poster[0].poster_img}`}  onLoad={(event) => resizeImg(event.target, 300)} 
+        alt={poster[0].picture} />
        <h2>{poster[0].description}</h2>
       <br /> <br />
       {poster.map(thisPoster => (
         <div key={thisPoster.id}>
           <h3>{thisPoster.date}</h3>
           <br /><br />
-          <h2>{thisPoster.memory}</h2>
-          <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300)}  alt={thisPoster.pictures} />
+          <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300)}  
+          alt={thisPoster.pictures} />
+          <br />
+          <button className="btn">delete</button>
+          <br /><br /> <br />
+          <h2>{thisPoster.memory}</h2> 
+          <br />
+          <button className="btn">edit</button>
         </div>
       ))}
       <br/><br/><br/><br/>
 
       <button onClick={toArchive} className="btn">
-        Back
+       BACK TO ARCHIVE
       </button>
     </div>
   );
