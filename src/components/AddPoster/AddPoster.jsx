@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import IMG_3656 from './IMG_3656.JPG'
 
 
 // AddPoster() allows user to upload poster & info to Archive
@@ -39,10 +40,18 @@ function AddPoster(props) {
     history.push('/archive')
   }
 
+  function resizeImg(img, newWidth, newHeight) {
+    // Set the new width and height for the image
+    img.width = newWidth;
+    // img.height = newHeight;
+  }
+
+
   return (
     <div className="container">
       <h1>Add the Event Poster</h1>
       {/* make the h2 a dialogue box check list */}
+      <img src ={IMG_3656} onLoad={(event) => resizeImg(event.target, 350)} />
       <h2>CHECK before you add the poster:
         <br></br>
         <ul>I double checked this poster is NOT on the site yet!</ul>
@@ -68,30 +77,6 @@ function AddPoster(props) {
     </div>
   );
 
-  // return (
-  //   <div className="container">
-      // <h1>Add the Event Poster</h1>
-      // {/* make the h2 a dialogue box check list */}
-      // <h2>CHECK before you add the poster:
-      //   <br></br>
-      //   <ul>I double checked this poster id NOT on the site yet!</ul>
-      //   <ul>This party has been over for at least 24 hours.</ul>
-      //   <ul>Poster does NOT include perosnal info like an address or phone number.</ul>
-      // </h2>
-      
-  //     <h2>Add Poster</h2>
-  //     <input type="text" placeholder="poster image url"/>
-
-  //     <h3>Description of Event</h3>
-  //     <input type="text" placeholder="add description"/>
-
-  //     <h3>Date of Event</h3>
-  //     <input type="text" placeholder="event date"/>
-  //     <br/> <br/>
-  //     {/* store to posters database & go back to archive page */}
-  //     <button onClick={toArchive} className="btn">ADD</button>
-  //   </div>
-  // );
 }
 
 export default AddPoster;

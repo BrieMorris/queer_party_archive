@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-// import ArchiveIMG from './ArchiveIMG.jpeg'
+import IMG_3655 from './IMG_3655.JPG'
 
 //Archive() posts all the poster img and allows user to navigate to acc content or view individual posters
 function Archive (props) {
@@ -35,9 +35,19 @@ function Archive (props) {
 
   return (
     <div className="container">
+     
+      <img src ={IMG_3655} onLoad={(event) => resizeImg(event.target, 350)} />
+      <br/>  <br/>
+      <h2> What you can do in the Archive:
+      <ul> 
+        <li>View Poster's Content</li>
+        <li>Add Posters</li>
+        <li>Add Content to Events you Attended</li>
+      </ul>
+      </h2>
+      <br/>  <br/>
       <h1>{heading}</h1>
-      {/* <img src ={ArchiveIMG}/> */}
-
+      <br/>  <br/>
         {console.log('poster list', posterList)}
         {posterList.map(posters => {
             return (
@@ -46,7 +56,6 @@ function Archive (props) {
               <img src={posters.poster_img} onLoad={(event) => resizeImg(event.target, 300)} alt="Poster Image" />
               <br/>  <br/>
               <button onClick={() => addContent(posters.id)} className="btn">ADD CONTENT</button>
-              {/* added .id */}
               <button  onClick={() => viewPoster(posters.id)} className="btn">VIEW</button>
               <br/>  <br/>
             </div>

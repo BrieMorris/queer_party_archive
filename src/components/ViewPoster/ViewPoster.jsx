@@ -31,15 +31,14 @@ function ViewPoster(posters) {
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
     img.width = newWidth;
-    img.height = newHeight;
+    // img.height = newHeight;
   }
 
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
-      {/* to do break apart - do two gets one for poster and one for poster watch part 2 of the movie saga live solve */}
-       <img src={`${poster[0].poster_img}`}  onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={poster[0].picture} />
+      <h1>{heading}</h1>
+       <img src={`${poster[0].poster_img}`}  onLoad={(event) => resizeImg(event.target, 300)}  alt={poster[0].picture} />
        <h2>{poster[0].description}</h2>
       <br /> <br />
       {poster.map(thisPoster => (
@@ -47,7 +46,7 @@ function ViewPoster(posters) {
           <h3>{thisPoster.date}</h3>
           <br /><br />
           <h2>{thisPoster.memory}</h2>
-          <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300, 300)}  alt={thisPoster.pictures} />
+          <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300)}  alt={thisPoster.pictures} />
         </div>
       ))}
       <br/><br/><br/><br/>
