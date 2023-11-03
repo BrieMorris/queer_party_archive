@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import IMG_3655 from './IMG_3655.JPG'
-// import './Archive.css'; 
+import './Archive.css'; 
 
 //Archive() posts all the poster img and allows user to navigate to acc content or view individual posters
 function Archive (props) {

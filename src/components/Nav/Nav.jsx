@@ -28,15 +28,7 @@ function Nav() {
               Home
             </Link>
 
-            {/* about */}
-            {/* <Link className="navLink" to="/about">
-            about
-             </Link> */}
-
-            {/* infoPage */}
-            {/* <Link className="navLink" to="/info">
-             Info
-            </Link> */}
+  
 
             <Link className="navLink" to="/archive">
             Archive
@@ -46,9 +38,7 @@ function Nav() {
              Add Poster
             </Link>
 
-            <Link className="navLink" to="/memorialMap">
-             Memorial Map
-            </Link>
+          
 
             <LogOutButton className="navLink" />
           </>

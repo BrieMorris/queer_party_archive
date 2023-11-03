@@ -14,6 +14,10 @@ function UserPage() {
     history.push('/info')
   }
 
+  const toMemorial = (event) => {
+    history.push('/memorialMap')
+  }
+
 
   return (
     <div className="container">
@@ -25,6 +29,8 @@ function UserPage() {
       <h3> The queer party is a space of joy, deliciousness  and debauchery. Identities, art, and community are made on loud dance floors, around the firepit, and in multidisciplinary performances. Many people don’t believe these spaces have always existed. This digital archive’s goal is to capture as much of the weird and queer community for us now and for the future queerdos to see we’ve always been and we always will be. </h3>
       <br/><br/><br/><br/><br/><br/>
       <button onClick={toInfo} className="btn">Developement Info</button>
+      <br/><br/>
+      <button onClick={toMemorial} className="btn">Memorial Map</button>
     </div>
   );
 }

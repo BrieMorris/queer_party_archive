@@ -34,6 +34,10 @@ function ViewPoster(posters) {
     // img.height = newHeight;
   }
 
+  const deleteImage = (imageId) => {
+    dispatch({ type: 'DELETE_IMAGE', payload: { posterId: id, imageId } });
+  };
+
 
   return (
     <div className="container">
@@ -49,7 +53,7 @@ function ViewPoster(posters) {
           <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300)}  
           alt={thisPoster.pictures} />
           <br />
-          <button className="btn">delete</button>
+          <button className="btn" onClick={() => deleteImage(thisPoster.id)} >delete</button>
           <br /><br /> <br />
           <h2>{thisPoster.memory}</h2> 
           <br />

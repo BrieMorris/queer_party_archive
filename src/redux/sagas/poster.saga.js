@@ -47,8 +47,6 @@ function* displayPoster(action) {
   }
 
   
-  
-  
   // saga function to view content of posters using db
   function* viewPosterContent(action) {
     console.log('action', action.payload);
@@ -61,6 +59,8 @@ function* displayPoster(action) {
         console.log('error posting observation', error);
     }    
   }
+
+  
   
   
  
