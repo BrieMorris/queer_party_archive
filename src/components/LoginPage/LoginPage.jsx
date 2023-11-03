@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
-// import IMG_login from './IMG_login.jpeg'
+import IMG_3650 from './IMG_3650.JPG'
 
 function LoginPage() {
   const history = useHistory();
@@ -10,7 +10,8 @@ function LoginPage() {
    //add a dialougue box of the ideals and guidlines that user need to agree to 
    <div>
       {/* add banner images */}
-      {/* <img src ={IMG_login}/> */}
+      <img src ={IMG_3650}/>
+      <br/>
       <LoginForm />
 
       <center>

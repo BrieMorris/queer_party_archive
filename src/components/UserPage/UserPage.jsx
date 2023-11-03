@@ -17,7 +17,6 @@ function UserPage() {
 
   return (
     <div className="container">
-      <img></img>
       <h2>Welcome, {user.username}!</h2>
       <img src ={IMG_3633}/>
       <br/><br/>

@@ -28,8 +28,10 @@ function Archive (props) {
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
     img.width = newWidth;
-    img.height = newHeight;
+    // img.height = newHeight;
   }
+
+
 
   return (
     <div className="container">
@@ -41,11 +43,12 @@ function Archive (props) {
             return (
             <div key={posters.id}>
               {console.log('posters id', posters.id)}
-              <img src={posters.poster_img} onLoad={(event) => resizeImg(event.target, 300, 300)} alt="Poster Image" />
+              <img src={posters.poster_img} onLoad={(event) => resizeImg(event.target, 300)} alt="Poster Image" />
               <br/>  <br/>
               <button onClick={() => addContent(posters.id)} className="btn">ADD CONTENT</button>
               {/* added .id */}
               <button  onClick={() => viewPoster(posters.id)} className="btn">VIEW</button>
+              <br/>  <br/>
             </div>
             )
         })}
