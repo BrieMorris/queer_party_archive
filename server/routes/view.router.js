@@ -4,7 +4,7 @@ const { default: logger } = require('redux-logger');
 const router = express.Router();
 
 
-//
+//get poster content
 router.get('/:id', (req, res) => {
   console.log('params', req.params);
   let id = req.params.id;

@@ -37,6 +37,11 @@ function ViewPoster(posters) {
     dispatch({ type: 'DELETE_IMAGE', payload: { posterId: id, imageId } });
   };
 
+  const editMemory = (memoryId) => {
+    //if time add evaluate that it is the same user here 
+    dispatch({ type: 'EDIT_MEMORY', payload: { posterId: id, memoryId } });
+  };
+
 
   return (
     <div className="container">
@@ -57,7 +62,7 @@ function ViewPoster(posters) {
           <br /><br /> <br />
           <h2>{thisPoster.memory}</h2> 
           <br />
-          <button className="btn">edit</button>
+          <button className="btn" onClick={() => editMemory(thisPoster.id)}  >edit</button>
         </div>
       ))}
       <br/><br/><br/><br/>

@@ -65,7 +65,7 @@ function* displayPoster(action) {
     console.log('action', action.payload);
     try {
       const deletePic = 
-      yield axios.delete('/api/content/'+ action.payload);
+      yield axios.delete('/api/viewContent/'+ action.payload);
       yield put({ type: 'DELETE_POSTER_IMAGE', payload: deletePic.data });
       console.log('deletePic', deletePic.data);
     } catch (error) {

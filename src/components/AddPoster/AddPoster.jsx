@@ -31,6 +31,18 @@ function AddPoster(props) {
     }
   }
  
+  const checkPoster = () => {
+    const checked = window.confirm(
+      `CHECK before you add the poster:
+        - I double checked this poster is NOT on the site yet!
+        - This party has been over for at least 24 hours.
+        - Poster does NOT include perosnal info like an address or phone number.`
+    );
+    if (checked) {
+      addPoster();
+    }
+  };
+
   const addPoster = (e) => {
     e.preventDefault();
     dispatch({ type: 'POSTER_ADD', payload: { description: description, date: date, poster_id:id }, fileToUpload: image, toArchive})
@@ -72,7 +84,7 @@ function AddPoster(props) {
       <h3>Date of Event</h3>
       <input onChange={(e) => setDate(e.target.value)} type="text" placeholder="add date"/>
       <br/>  <br/>
-      <button className="btn">ADD POSTER</button>
+      <button className="btn"  onClick={checkPoster} >ADD POSTER</button>
       </form>
     </div>
   );
