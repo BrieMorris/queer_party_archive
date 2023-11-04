@@ -60,7 +60,20 @@ function* displayPoster(action) {
     }    
   }
 
-  
+  // saga function to delete images -- finish editing
+  function* deleteImage(action) {
+    console.log('action', action.payload);
+    try {
+      const deletePic = 
+      yield axios.delete('/api/content/'+ action.payload);
+      yield put({ type: 'DELETE_POSTER_IMAGE', payload: deletePic.data });
+      console.log('deletePic', deletePic.data);
+    } catch (error) {
+        console.log('error deleting image', error);
+    }    
+  }
+
+// axios put for edit 
   
   
  
@@ -70,6 +83,7 @@ function* displayPoster(action) {
     yield takeEvery('POSTER_ADD', addPosters);
     yield takeEvery('ADD_POSTER_INFO', addPosterContent);
     yield takeEvery('VIEW_POSTER', viewPosterContent);
+    yield takeEvery('DELETE_IMAGE', deleteImage);
   }
   
   export default posterSaga;

@@ -19,9 +19,7 @@ function ViewPoster(posters) {
   
   useEffect(() => {
     dispatch({ type: 'VIEW_POSTER', payload: id });
-    
-    
-}, [id]);
+    }, [id]);
 
   
   const toArchive = (event) => {
@@ -35,6 +33,7 @@ function ViewPoster(posters) {
   }
 
   const deleteImage = (imageId) => {
+    //if time add evaluate that it is the same user here 
     dispatch({ type: 'DELETE_IMAGE', payload: { posterId: id, imageId } });
   };
 
@@ -53,6 +52,7 @@ function ViewPoster(posters) {
           <img src={`${thisPoster.images}`} onLoad={(event) => resizeImg(event.target, 300)}  
           alt={thisPoster.pictures} />
           <br />
+          {/* if time add hide show would evaluate if its the correct user */}
           <button className="btn" onClick={() => deleteImage(thisPoster.id)} >delete</button>
           <br /><br /> <br />
           <h2>{thisPoster.memory}</h2> 

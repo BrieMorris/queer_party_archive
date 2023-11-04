@@ -28,8 +28,6 @@ function Nav() {
               Home
             </Link>
 
-  
-
             <Link className="navLink" to="/archive">
             Archive
              </Link>

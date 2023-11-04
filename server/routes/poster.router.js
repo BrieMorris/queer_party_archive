@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
    })
 });
 
-// needs saga and reducer 
+ 
 //Get to add event poster
 router.get('/:id', (req, res) => {
   const queryText = `SELECT * FROM posters WHERE id = $1; `
