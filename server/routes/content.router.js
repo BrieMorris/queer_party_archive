@@ -20,10 +20,10 @@ router.post('/', (req, res) => {
 });
 
 //to delete poster image
-router.delete('/', (req, res) => {
-  const queryText = `DELETE images FROM poster_content WHERE user_id = $1 AND poster_id = $2;`
-  //should this just be photo?
-  pool.query(queryText, [req.user.id, req.body.poster_id, req.body.photo ])
+router.delete('/:id', (req, res) => {
+  let id = req.params.id
+  const queryText = `DELETE FROM poster_content WHERE id = $1;`
+  pool.query(queryText, [id])
   .then(result => {
     res.sendStatus(201);
    })

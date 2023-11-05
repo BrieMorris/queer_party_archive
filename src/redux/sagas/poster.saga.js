@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { useDispatch } from 'react-redux';
+
 
 
 //saga function to diplay posters in archive using db
@@ -33,7 +35,6 @@ function* displayPoster(action) {
   // saga to add poster content to specific posters 
   function* addPosterContent(action){
     try {
-     
       const formData = new FormData();
         formData.append('file', action.fileToUpload);
         formData.append('upload_preset', process.env.REACT_APP_PRESET);
@@ -62,18 +63,33 @@ function* displayPoster(action) {
 
   // saga function to delete images -- finish editing
   function* deleteImage(action) {
+   
     console.log('action', action.payload);
     try {
+
       const deletePic = 
-      yield axios.delete('/api/viewContent/'+ action.payload);
+      yield axios.delete('/api/content/'+ action.payload.posterId);
       yield put({ type: 'DELETE_POSTER_IMAGE', payload: deletePic.data });
       console.log('deletePic', deletePic.data);
+   
     } catch (error) {
         console.log('error deleting image', error);
     }    
   }
 
 // axios put for edit 
+
+// function* editMemory(action) {
+//   console.log('action', action.payload);
+//   try {
+//     const editMemory = 
+//     yield axios.delete('/api/viewContent/'+ action.payload);
+//     yield put({ type: 'DELETE_POSTER_IMAGE', payload: deletePic.data });
+//     console.log('deletePic', deletePic.data);
+//   } catch (error) {
+//       console.log('error deleting image', error);
+//   }    
+// }
   
   
  

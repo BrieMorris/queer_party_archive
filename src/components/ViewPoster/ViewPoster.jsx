@@ -32,9 +32,10 @@ function ViewPoster(posters) {
     // img.height = newHeight;
   }
 
-  const deleteImage = (imageId) => {
+  const deleteImage = (poster) => {
+    console.log('Poster in Delete', poster);
     //if time add evaluate that it is the same user here 
-    dispatch({ type: 'DELETE_IMAGE', payload: { posterId: id, imageId } });
+    dispatch({ type: 'DELETE_IMAGE', payload: { posterId: poster.id, poster: poster.posterId } });
   };
 
   const editMemory = (memoryId) => {
@@ -58,7 +59,7 @@ function ViewPoster(posters) {
           alt={thisPoster.pictures} />
           <br />
           {/* if time add hide show would evaluate if its the correct user */}
-          <button className="btn" onClick={() => deleteImage(thisPoster.id)} >delete</button>
+          <button className="btn" onClick={() => deleteImage(thisPoster)} >delete</button>
           <br /><br /> <br />
           <h2>{thisPoster.memory}</h2> 
           <br />
