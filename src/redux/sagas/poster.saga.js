@@ -23,7 +23,6 @@ function* displayPoster(action) {
       formData.append('upload_preset', process.env.REACT_APP_PRESET);
       let postUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
       const response = yield axios.post(postUrl, formData);
-      // or is it yield axios.post('/api/poster',
       yield axios.post('/api/poster', { ...action.payload, photo: response.data.secure_url});
       action.toArchive()
   } catch (error) {
@@ -63,13 +62,14 @@ function* displayPoster(action) {
 
   // saga function to delete images -- finish editing
   function* deleteImage(action) {
-   
+    // const dispatch = useDispatch();
     console.log('action', action.payload);
     try {
 
       const deletePic = 
       yield axios.delete('/api/content/'+ action.payload.posterId);
-      yield put({ type: 'DELETE_POSTER_IMAGE', payload: deletePic.data });
+      //dispatch 'VIEW_POSTER_CONTENT'
+      yield put({ type: 'VIEW_POSTER', payload: action.payload.id });
       console.log('deletePic', deletePic.data);
    
     } catch (error) {
@@ -83,8 +83,8 @@ function* editMemory(action) {
   console.log('action', action.payload);
   try {
     const editMemory = 
-    yield axios.put('/api/viewContent/'+ action.payload);
-    yield put({ type: 'DELETE_POSTER_IMAGE', payload: editMemory.data });
+    yield axios.put('/api/viewContent/'+ action.payload.memoryId);
+    yield put({ type: 'VIEW_POSTER', payload: action.payload.id });
     console.log('editMemory', editMemory.data);
   } catch (error) {
       console.log('error editing memory', error);
