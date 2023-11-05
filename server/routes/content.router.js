@@ -28,9 +28,22 @@ router.delete('/:id', (req, res) => {
     res.sendStatus(201);
    })
    .catch(err => {
-    console.log('ERROR; deleting image', err);
+    console.log('ERROR: deleting image', err);
     res.sendStatus(500)
    })
+})
+
+//to edit poster memory 
+router.put ('/:id', (req,res) => {
+  const queryText = ``
+  pool.query(queryText, [id])
+  .then(result => {
+    res.sendStatus(200)
+  })
+  .catch(err => {
+    console.log('ERROR: editing memory', err);
+    res.sendStatus(500)
+  })
 })
 
 

@@ -79,17 +79,17 @@ function* displayPoster(action) {
 
 // axios put for edit 
 
-// function* editMemory(action) {
-//   console.log('action', action.payload);
-//   try {
-//     const editMemory = 
-//     yield axios.delete('/api/viewContent/'+ action.payload);
-//     yield put({ type: 'DELETE_POSTER_IMAGE', payload: deletePic.data });
-//     console.log('deletePic', deletePic.data);
-//   } catch (error) {
-//       console.log('error deleting image', error);
-//   }    
-// }
+function* editMemory(action) {
+  console.log('action', action.payload);
+  try {
+    const editMemory = 
+    yield axios.put('/api/viewContent/'+ action.payload);
+    yield put({ type: 'DELETE_POSTER_IMAGE', payload: editMemory.data });
+    console.log('editMemory', editMemory.data);
+  } catch (error) {
+      console.log('error editing memory', error);
+  }    
+}
   
   
  
@@ -100,6 +100,7 @@ function* displayPoster(action) {
     yield takeEvery('ADD_POSTER_INFO', addPosterContent);
     yield takeEvery('VIEW_POSTER', viewPosterContent);
     yield takeEvery('DELETE_IMAGE', deleteImage);
+    yield takeEvery('EDIT_MEMORY', editMemory);
   }
   
   export default posterSaga;
