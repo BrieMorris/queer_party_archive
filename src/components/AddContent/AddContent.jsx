@@ -32,8 +32,8 @@ function AddContent(props) {
   const addContent = (e) => {
     e.preventDefault();
     if (id) {
-      //edit poster
-      dispatch({ type: 'EDIT_MEMORY', payload: {image, memory, id}, history })
+      //edit poster content
+      dispatch({ type: 'EDIT_MEMORY', payload: { memory, id}, history })
     }else {
       //add poster content
     dispatch({ type: 'ADD_POSTER_INFO', payload: { memory: memory, poster_id:id }, fileToUpload: image, toArchive})
@@ -48,7 +48,6 @@ function AddContent(props) {
     if (id) { //return false if id is undefined
       axios.get(`/api/content/${id}`).then(response => {
         const content = response.data;
-        setImage(content.image);
         setMemory(content.memory)
       }) .catch(error => {
         console.log(error);
