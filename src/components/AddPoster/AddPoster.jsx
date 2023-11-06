@@ -94,7 +94,7 @@ function AddPoster(props) {
       </h2>
         <br/>  <br/>
       <h3>Add Poster Image:</h3> 
-      <form >
+      <form onSubmit = {addPoster}>
       <input  type="file" 
               accept="image/*" 
               onChange={onFileChange}
@@ -119,8 +119,11 @@ function AddPoster(props) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          {/* fix text in box */}
+          <Typography id="CHECK before you add the poster:" sx={{ mt: 2 }}>
+            1.  I double checked this poster is NOT on the site yet!     
+            2.  This party has been over for at least 24 hours.                               
+            3.  Poster does NOT include perosnal info like an address or phone number.
           </Typography>
           <Button onClick={addPoster}>SAVE</Button>
           <Button onClick={handleClose}>CANCEL</Button>
