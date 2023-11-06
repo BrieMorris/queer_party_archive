@@ -68,7 +68,6 @@ function ViewPoster(posters) {
         </div>
       ))}
       <br/><br/><br/><br/>
-
       <button onClick={toArchive} className="btn">
        BACK TO ARCHIVE
       </button>

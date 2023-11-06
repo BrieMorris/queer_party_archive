@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import IMG_3656 from './IMG_3656.JPG'
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
 
 
 // AddPoster() allows user to upload poster & info to Archive
@@ -31,17 +36,34 @@ function AddPoster(props) {
     }
   }
  
-  const checkPoster = () => {
-    const checked = window.confirm(
-      `CHECK before you add the poster:
-        - I double checked this poster is NOT on the site yet!
-        - This party has been over for at least 24 hours.
-        - Poster does NOT include perosnal info like an address or phone number.`
-    );
-    if (checked) {
-      addPoster();
-    }
+  // const checkPoster = () => {
+  //   const checked = window.confirm(
+  //     `CHECK before you add the poster:
+  //       - I double checked this poster is NOT on the site yet!
+  //       - This party has been over for at least 24 hours.
+  //       - Poster does NOT include perosnal info like an address or phone number.`
+  //   );
+  //   if (checked) {
+  //     addPoster();
+  //   }
+  // };
+
+  // move this to css 
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
   };
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const addPoster = (e) => {
     e.preventDefault();
@@ -72,7 +94,7 @@ function AddPoster(props) {
       </h2>
         <br/>  <br/>
       <h3>Add Poster Image:</h3> 
-      <form onSubmit = {addPoster}>
+      <form >
       <input  type="file" 
               accept="image/*" 
               onChange={onFileChange}
@@ -84,7 +106,27 @@ function AddPoster(props) {
       <h3>Date of Event</h3>
       <input onChange={(e) => setDate(e.target.value)} type="text" placeholder="add date"/>
       <br/>  <br/>
-      <button className="btn"  onClick={checkPoster} >ADD POSTER</button>
+      {/* <button className="btn"  onClick={checkPoster} >ADD POSTER</button> */}
+      <div>
+      <Button onClick={handleOpen}>SAVE POSTER</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+          <Button onClick={addPoster}>SAVE</Button>
+          <Button onClick={handleClose}>CANCEL</Button>
+        </Box>
+      </Modal>
+    </div>
       </form>
     </div>
   );
