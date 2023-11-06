@@ -65,10 +65,8 @@ function* displayPoster(action) {
     // const dispatch = useDispatch();
     console.log('action', action.payload);
     try {
-
       const deletePic = 
       yield axios.delete('/api/content/'+ action.payload.posterId);
-      //dispatch 'VIEW_POSTER_CONTENT'
       yield put({ type: 'VIEW_POSTER', payload: action.payload.id });
       console.log('deletePic', deletePic.data);
    
@@ -83,8 +81,11 @@ function* editMemory(action) {
   console.log('action', action.payload);
   try {
     const editMemory = 
-    yield axios.put('/api/viewContent/'+ action.payload.memoryId);
-    yield put({ type: 'VIEW_POSTER', payload: action.payload.id });
+    yield axios.put(`/api/content/${action.payload.memoryId}`, action.payload );
+    if (action.history) {
+      action.history.goBack();
+    }
+    // yield put({ type: 'VIEW_POSTER', payload: action.payload.id });
     console.log('editMemory', editMemory.data);
   } catch (error) {
       console.log('error editing memory', error);

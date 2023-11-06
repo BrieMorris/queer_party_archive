@@ -31,7 +31,13 @@ function AddContent(props) {
  
   const addContent = (e) => {
     e.preventDefault();
+    if (id) {
+      //edit poster
+      dispatch({ type: 'EDIT_MEMORY', payload: {image, memory, id}, history })
+    }else {
+      //add poster content
     dispatch({ type: 'ADD_POSTER_INFO', payload: { memory: memory, poster_id:id }, fileToUpload: image, toArchive})
+  }
   } 
 
   const toArchive = (event) => {
@@ -39,9 +45,14 @@ function AddContent(props) {
   }
 
   useEffect(() => {
-    id (id) { //return false if id is undefined
+    if (id) { //return false if id is undefined
       axios.get(`/api/content/${id}`).then(response => {
-        
+        const content = response.data;
+        setImage(content.image);
+        setMemory(content.memory)
+      }) .catch(error => {
+        console.log(error);
+        alert('something went wrong in edit')
       })
     } //else do nothing
     
@@ -50,12 +61,12 @@ function AddContent(props) {
   //add on change to inputs - change into a form
   return (
     <div className="container">
-      <h2>Add to Poster</h2>
+    <h2>{id ? 'Edit Memory': 'Add to Poster'}</h2>
+    <Link to= {`/edit${id}`}>edit</Link>
       <img src ={IMG_3645}/>
       <h3>Remeber this is a public archive. Please don't tell on yourself or your friends.</h3>
         <br/>  <br/>
       <h3>Add an image:</h3> 
-      <Link to= {`/edit${id}`}>edit</Link>
       <form onSubmit = {addContent}>
       <input  type="file" 
               accept="image/*" 
@@ -63,7 +74,8 @@ function AddContent(props) {
               placeholder="image url"/>
           <br/>
       <br/>  <br/>
-      <h3>{id ? 'Edit Memory': 'Share a memory from the event:'}</h3>
+      <h3>Share a memory from the event:</h3>
+    
       <textarea onChange={(e) => setMemory(e.target.value)} type="text" placeholder="add memory"/>
       <br/>  <br/>
       <button className="btn">ADD</button>
