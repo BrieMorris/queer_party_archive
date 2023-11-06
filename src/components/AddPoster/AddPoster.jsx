@@ -36,17 +36,7 @@ function AddPoster(props) {
     }
   }
  
-  // const checkPoster = () => {
-  //   const checked = window.confirm(
-  //     `CHECK before you add the poster:
-  //       - I double checked this poster is NOT on the site yet!
-  //       - This party has been over for at least 24 hours.
-  //       - Poster does NOT include perosnal info like an address or phone number.`
-  //   );
-  //   if (checked) {
-  //     addPoster();
-  //   }
-  // };
+
 
   // move this to css 
   const style = {
@@ -84,16 +74,11 @@ function AddPoster(props) {
   return (
     <div className="container">
       <h1>Add the Event Poster</h1>
-      {/* make the h2 a dialogue box check list */}
       <img src ={IMG_3656} onLoad={(event) => resizeImg(event.target, 350)} />
-      <h2>CHECK before you add the poster:
-        <br></br>
-        <ul>I double checked this poster is NOT on the site yet!</ul>
-        <ul>This party has been over for at least 24 hours.</ul>
-        <ul>Poster does NOT include perosnal info like an address or phone number.</ul>
-      </h2>
         <br/>  <br/>
+        
       <h3>Add Poster Image:</h3> 
+      
       <form onSubmit = {addPoster}>
       <input  type="file" 
               accept="image/*" 
@@ -101,12 +86,11 @@ function AddPoster(props) {
               placeholder="image url"/>
           <br/>
       <br/>  <br/>
-      <h3>Description of Event</h3>
+    <h3>Description of Event</h3>
       <textarea onChange={(e) => setdescription(e.target.value)} type="text" placeholder="add description"/>
       <h3>Date of Event</h3>
       <input onChange={(e) => setDate(e.target.value)} type="text" placeholder="add date"/>
       <br/>  <br/>
-      {/* <button className="btn"  onClick={checkPoster} >ADD POSTER</button> */}
       <div>
       <Button onClick={handleOpen}>SAVE POSTER</Button>
       <Modal

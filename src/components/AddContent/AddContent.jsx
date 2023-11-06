@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import IMG_3645 from './IMG_3645.JPG'
+import axios from 'axios';
 
 //AddConent() will allow users to add content a specific poster
 function AddContent(props) {
@@ -37,6 +38,15 @@ function AddContent(props) {
     history.push('/archive')
   }
 
+  useEffect(() => {
+    id (id) { //return false if id is undefined
+      axios.get(`/api/content/${id}`).then(response => {
+        
+      })
+    } //else do nothing
+    
+  }, [id]);
+
   //add on change to inputs - change into a form
   return (
     <div className="container">
@@ -45,6 +55,7 @@ function AddContent(props) {
       <h3>Remeber this is a public archive. Please don't tell on yourself or your friends.</h3>
         <br/>  <br/>
       <h3>Add an image:</h3> 
+      <Link to= {`/edit${id}`}>edit</Link>
       <form onSubmit = {addContent}>
       <input  type="file" 
               accept="image/*" 
@@ -52,7 +63,7 @@ function AddContent(props) {
               placeholder="image url"/>
           <br/>
       <br/>  <br/>
-      <h3>Share a memory from the event:</h3>
+      <h3>{id ? 'Edit Memory': 'Share a memory from the event:'}</h3>
       <textarea onChange={(e) => setMemory(e.target.value)} type="text" placeholder="add memory"/>
       <br/>  <br/>
       <button className="btn">ADD</button>

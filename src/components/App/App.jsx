@@ -101,14 +101,19 @@ function App() {
           >
             <AddContent />
           </ProtectedRoute>
+            
+          <ProtectedRoute
+            //navigate to edit poster
+            exact
+            path="/edit/:id">
+              <AddContent/>
+          </ProtectedRoute> 
 
 
           <ProtectedRoute
             // navigated to add poster
             exact
-            path="/poster"
-            
-          >
+            path="/poster">
             <AddPoster />
           </ProtectedRoute>
 
