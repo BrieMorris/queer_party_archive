@@ -9,7 +9,7 @@ function AddContent(props) {
   
   const history = useHistory();
   const dispatch = useDispatch();
-  const {id} = useParams();
+  const {id, editId} = useParams();
   
   const [image, setImage] = useState();
   const [memory, setMemory] = useState('');
@@ -31,9 +31,9 @@ function AddContent(props) {
  
   const addContent = (e) => {
     e.preventDefault();
-    if (id) {
+    if (editId) {
       //edit poster content
-      dispatch({ type: 'EDIT_MEMORY', payload: { memory, id}, history })
+      dispatch({ type: 'EDIT_MEMORY', payload: { memory, editId}, history })
     }else {
       //add poster content
     dispatch({ type: 'ADD_POSTER_INFO', payload: { memory: memory, poster_id:id }, fileToUpload: image, toArchive})
@@ -44,24 +44,24 @@ function AddContent(props) {
     history.push('/archive')
   }
 
-  useEffect(() => {
-    if (id) { //return false if id is undefined
-      axios.get(`/api/content/${id}`).then(response => {
-        const content = response.data;
-        setMemory(content.memory)
-      }) .catch(error => {
-        console.log(error);
-        alert('something went wrong in edit')
-      })
-    } //else do nothing
+  // useEffect(() => {
+  //   if (id) { //return false if id is undefined
+  //     axios.get(`/api/content/${id}`).then(response => {
+  //       const content = response.data;
+  //       setMemory(content.memory)
+  //     }) .catch(error => {
+  //       console.log(error);
+  //       alert('something went wrong in edit')
+  //     })
+  //   } //else do nothing
     
-  }, [id]);
+  // }, [id]);
 
   //add on change to inputs - change into a form
   return (
     <div className="container">
-    <h2>{id ? 'Edit Memory': 'Add to Poster'}</h2>
-    <Link to= {`/edit${id}`}>edit</Link>
+    <h2>{editId ? 'Edit Memory': 'Add to Poster'}</h2>
+    {/* <Link to= {`/edit${id}`}>edit</Link> */}
       <img src ={IMG_3645}/>
       <h3>Remeber this is a public archive. Please don't tell on yourself or your friends.</h3>
         <br/>  <br/>

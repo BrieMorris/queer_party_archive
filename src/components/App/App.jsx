@@ -106,7 +106,7 @@ function App() {
             //navigate to edit poster
             exact
             //does this need to be more specific that id bc id is attached to addContent
-            path="/edit/:id">
+            path="/edit/:editId">
               <AddContent/>
           </ProtectedRoute> 
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import IMG_3656 from './IMG_3656.JPG'
+import IMG_3643 from './IMG_3643.JPG'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -74,7 +74,7 @@ function AddPoster(props) {
   return (
     <div className="container">
       <h1>Add the Event Poster</h1>
-      <img src ={IMG_3656} onLoad={(event) => resizeImg(event.target, 350)} />
+      <img src ={IMG_3643} onLoad={(event) => resizeImg(event.target, 350)} />
         <br/>  <br/>
         
       <h3>Add Poster Image:</h3> 

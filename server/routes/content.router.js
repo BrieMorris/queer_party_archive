@@ -34,11 +34,11 @@ router.delete('/:id', (req, res) => {
 })
 
 //put to edit poster memory 
-router.put ('/:id', (req,res) => {
+router.put ('/:editId', (req,res) => {
   const queryText = `UPDATE poster_content
   SET memory = $1
   WHERE id = $2;`
-  pool.query(queryText, [req.body.memory, req.params.id])
+  pool.query(queryText, [req.body.memory, req.params.editId])
   .then(result => {
     res.sendStatus(200)
   })

@@ -81,7 +81,7 @@ function* editMemory(action) {
   console.log('action', action.payload);
   try {
     const editMemory = 
-    yield axios.put(`/api/content/${action.payload.memoryId}`, action.payload );
+    yield axios.put(`/api/content/${action.payload.editId}`, action.payload );
     if (action.history) {
       action.history.goBack();
     }

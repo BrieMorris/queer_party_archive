@@ -41,7 +41,8 @@ function ViewPoster(posters) {
   const editMemory = (memoryId) => {
     console.log('Memory Edit', memoryId);
     //if time add evaluate that it is the same user here 
-    dispatch({ type: 'EDIT_MEMORY', payload: { id: id, memoryId } });
+    // dispatch({ type: 'EDIT_MEMORY', payload: { id: id, memoryId } });
+    history.push(`/edit/${memoryId}`)
   };
 
 
