@@ -2,6 +2,28 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+//get poster content
+router.get('/:id', (req, res) => {
+  console.log('params', req.params);
+  let id = req.params.id;
+
+  const queryText = `SELECT *
+  FROM poster_content
+  WHERE id = $1`;
+console.log('queryText', queryText);
+  pool.query(queryText, [id])
+
+   .then(result => {
+    res.send(result.rows[0]);
+  //   console.log(result.rows);
+   })
+   .catch(err => {
+    console.log('ERROR; Get view poster content', err);
+    res.sendStatus(500)
+   })
+});
+
+
 //to post poster content 
 router.post('/', (req, res) => {
   console.log(req.body);

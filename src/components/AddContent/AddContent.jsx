@@ -44,18 +44,18 @@ function AddContent(props) {
     history.push('/archive')
   }
 
-  // useEffect(() => {
-  //   if (id) { //return false if id is undefined
-  //     axios.get(`/api/content/${id}`).then(response => {
-  //       const content = response.data;
-  //       setMemory(content.memory)
-  //     }) .catch(error => {
-  //       console.log(error);
-  //       alert('something went wrong in edit')
-  //     })
-  //   } //else do nothing
+  useEffect(() => {
+    if (editId) { //return false if id is undefined
+      axios.get(`/api/content/${editId}`).then(response => {
+        const content = response.data;
+        setMemory(content.memory)
+      }) .catch(error => {
+        console.log(error);
+        alert('something went wrong in edit')
+      })
+    } //else do nothing
     
-  // }, [id]);
+  }, [editId]);
 
   //add on change to inputs - change into a form
   return (
@@ -75,7 +75,7 @@ function AddContent(props) {
       <br/>  <br/>
       <h3>Share a memory from the event:</h3>
     
-      <textarea onChange={(e) => setMemory(e.target.value)} type="text" placeholder="add memory"/>
+      <textarea value={memory} onChange={(e) => setMemory(e.target.value)} type="text" placeholder="add memory"/>
       <br/>  <br/>
       <button className="btn">ADD</button>
       </form>

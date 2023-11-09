@@ -101,7 +101,7 @@ function AddPoster(props) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+          CHECK before you add the poster:
           </Typography>
           {/* fix text in box */}
           <Typography id="CHECK before you add the poster:" sx={{ mt: 2 }}>
