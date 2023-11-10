@@ -42,6 +42,7 @@ function InfoPage() {
       <br/> - Sagas
       <br/> - HTML5
       <br/> - CSS 3
+      <br/> - Heroku
       <br/> - Cloudinary
     </h4>
       <br/>
