@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 
 //to delete poster image
 router.delete('/:id', (req, res) => {
-  let id = req.params.id
+  let id = req.params.idhttps://www.google.com/intl/en/about/products?tab=mh
   const queryText = `DELETE FROM poster_content WHERE id = $1;`
   pool.query(queryText, [id])
   .then(result => {
