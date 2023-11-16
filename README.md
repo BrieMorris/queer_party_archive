@@ -3,6 +3,11 @@ MN Queer Party Archive is a space for the MN queer community to archive their pa
 
 First I set up the routes, sagas, and reducers. Focusing on the Archive component. 
 
+To DO 
+fix addPoster button
+reload all data from launch
+
+
 
 ## Update Documentation
 
