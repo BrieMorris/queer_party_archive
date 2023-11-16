@@ -1,7 +1,8 @@
 ## MN Queer Party Archive
 MN Queer Party Archive is a space for the MN queer community to archive their parties.  The goal is to allow users to create the archive by allowing them to upload posters from queer events with poster image, description and event date.This application is not a social media tool. It is meant to archive queer community through the weird and wonderful parties that we have. It is not a museum space, instead it’s a community tool where users get to add and manage their own content. 
 
-First I set up the routes, sagas, and reducers. Focusing on the Archive component. 
+After mapping out my project I created the components. 
+Then I set up the routes, sagas, and reducers. Focusing on the Archive component. 
 
 To DO 
 fix addPoster button
