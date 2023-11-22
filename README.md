@@ -4,6 +4,8 @@ MN Queer Party Archive is a space for the MN queer community to archive their pa
 After mapping out my project I created the components. 
 Then I set up the routes, sagas, and reducers. Focusing on the React component named Archive that renders a list of posters and provides options to add content or view individual posters. 
 
+Nav bar React code for a navigation bar component using React Router and Redux. This component, named Nav, renders different links based on whether a user is logged in or not. The render method returns the JSX structure for the navigation bar. It includes a link to the home page with the title "MN Queer Party Archive" and a set of conditional links based on the user's login status.
+
 React component named ViewPoster that is using Redux for state management and React Router for navigation. This component appears to display information about a specific poster, including its images, description, date, and associated memories. Users can delete and edit individual memories, and there's a button to navigate back to the archive.
 
 To DO 
