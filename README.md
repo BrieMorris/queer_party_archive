@@ -8,6 +8,8 @@ Nav bar React code for a navigation bar component using React Router and Redux. 
 
 React component named ViewPoster that is using Redux for state management and React Router for navigation. This component appears to display information about a specific poster, including its images, description, date, and associated memories. Users can delete and edit individual memories, and there's a button to navigate back to the archive.
 
+React component named AddContent that is designed for adding or editing content related to a poster. Using the useState hook to manage the state of image and memory.The onFileChange function is using the fileToUpload and using Redux for state management. A form for adding content. In the addContent function, when editing content (editId is truthy), you are dispatching an action with fileToUpload as an argument. Ensure that fileToUpload is accessible in this context.
+
 To DO 
 fix addPoster button
 reload all data from launch
