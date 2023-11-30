@@ -10,11 +10,14 @@ React component named ViewPoster that is using Redux for state management and Re
 
 React component named AddContent that is designed for adding or editing content related to a poster. Using the useState hook to manage the state of image and memory.The onFileChange function is using the fileToUpload and using Redux for state management. A form for adding content. In the addContent function, when editing content (editId is truthy), you are dispatching an action with fileToUpload as an argument. Ensure that fileToUpload is accessible in this context.
 
+AddPoster component appears to be a React component that allows users to upload event posters along with date and description. When users click to add poster a modal pops up to remind them to check the content does not include personal information. The user can cancel the upload or save the poster.  
+
 To DO 
-fix addPoster button
+fix addPoster button in modal
 reload all data from launch
 check everything is working with heroku launch
 clean up all templates and not used components
+change restyle to css?
 
 
 
