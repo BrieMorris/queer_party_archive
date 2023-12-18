@@ -114,7 +114,7 @@ function AddPoster(props) {
         </Box>
       </Modal>
     </div>
-      </form>
+    </form>
     </div>
   );
 

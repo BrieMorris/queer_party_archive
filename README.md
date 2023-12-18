@@ -1,7 +1,7 @@
 ## MN Queer Party Archive
 MN Queer Party Archive is a space for the MN queer community to archive their parties.  The goal is to allow users to create the archive by allowing them to upload posters from queer events with poster image, description and event date.This application is not a social media tool. It is meant to archive queer community through the weird and wonderful parties that we have. It is not a museum space, instead it’s a community tool where users get to add and manage their own content. 
 
-After mapping out my project I created the components. 
+After mapping out my project in freeform. I created the components. 
 Then I set up the routes, sagas, and reducers. Focusing on the React component named Archive that renders a list of posters and provides options to add content or view individual posters. 
 
 Nav bar React code for a navigation bar component using React Router and Redux. This component, named Nav, renders different links based on whether a user is logged in or not. The render method returns the JSX structure for the navigation bar. It includes a link to the home page with the title "MN Queer Party Archive" and a set of conditional links based on the user's login status.

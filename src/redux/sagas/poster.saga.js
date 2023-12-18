@@ -60,7 +60,7 @@ function* displayPoster(action) {
     }    
   }
 
-  // saga function to delete images -- finish editing
+  // saga function to delete images -
   function* deleteImage(action) {
     // const dispatch = useDispatch();
     console.log('action', action.payload);

@@ -55,7 +55,7 @@ function AddContent(props) {
       })
     } //else do nothing
     
-  }, [editId]);
+  }, [editId]);0
 
   //add on change to inputs - change into a form
   return (

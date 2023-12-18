@@ -41,9 +41,9 @@ router.post('/', (req, res) => {
 
 });
 
-//to delete poster image
+//to delete image connected to poster but not the poster itself
 router.delete('/:id', (req, res) => {
-  let id = req.params.idhttps://www.google.com/intl/en/about/products?tab=mh
+  let id = req.params.id
   const queryText = `DELETE FROM poster_content WHERE id = $1;`
   pool.query(queryText, [id])
   .then(result => {
