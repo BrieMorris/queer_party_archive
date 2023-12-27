@@ -96,6 +96,7 @@ function AddPoster(props) {
       <Modal
         open={open}
         onClose={handleClose}
+        //is this what needs to be changed
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -103,7 +104,7 @@ function AddPoster(props) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
           CHECK before you add the poster:
           </Typography>
-          {/* fix text in box */}
+          {/* fix text in box - this should be doable once I have launched */}
           <Typography id="CHECK before you add the poster:" sx={{ mt: 2 }}>
             1.  I double checked this poster is NOT on the site yet!     
             2.  This party has been over for at least 24 hours.                               
