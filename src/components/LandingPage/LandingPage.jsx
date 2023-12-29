@@ -6,7 +6,7 @@ import './LandingPage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('Register to become a queer archivist!');
   const history = useHistory();
 
   const onLogin = (event) => {
@@ -22,9 +22,7 @@ function LandingPage() {
         <div className="grid-col grid-col_8">
         {/* add image */}
         <img></img>
-          <p>
-            Ideals and Guidelines:
-          </p>
+         
 
         </div>
         <div className="grid-col grid-col_4">
