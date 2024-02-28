@@ -16,7 +16,8 @@ function LoginPage() {
    //add a dialougue box of the ideals and guidlines that user need to agree to 
    <div>
       {/* add banner images */}
-      <img src ={IMG_3650}  onLoad={(event) => resizeImg(event.target, 450)}/>
+      <img src={IMG_3650} onLoad={(event) => resizeImg(event.target, 450)} style={{ display: "block", margin: "0 auto" }} />
+    <br />
       <br/>
       <LoginForm />
 

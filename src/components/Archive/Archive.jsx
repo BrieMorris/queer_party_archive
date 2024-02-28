@@ -47,7 +47,6 @@ function Archive (props) {
 
   return (
     <div className="container">
-    
       <img src ={IMG_3655} onLoad={(event) => resizeImg(event.target, 350)} />
       <br/>  <br/>
       <h2> What you can do in the Archive:

@@ -92,7 +92,8 @@ function AddPoster(props) {
       <input onChange={(e) => setDate(e.target.value)} type="text" placeholder="add date"/>
       <br/>  <br/>
       <div>
-      <Button onClick={handleOpen}>SAVE POSTER</Button>
+      {/* <Button onClick={handleOpen}>SAVE POSTER</Button> */}
+      <button className="btn">SAVE POSTER</button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -107,7 +108,7 @@ function AddPoster(props) {
           {/* fix text in box - this should be doable once I have launched */}
           <Typography id="CHECK before you add the poster:" sx={{ mt: 2 }}>
             1.  I double checked this poster is NOT on the site yet!     
-            2.  This party has been over for at least 24 hours.                               
+            2.  This party has been over for at least 24 hours. <br></br>                               
             3.  Poster does NOT include perosnal info like an address or phone number.
           </Typography>
           <Button onClick={addPoster}>SAVE</Button>

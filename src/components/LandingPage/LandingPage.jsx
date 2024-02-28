@@ -6,7 +6,7 @@ import './LandingPage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Register to become a queer archivist!');
+  const [heading, setHeading] = useState();
   const history = useHistory();
 
   const onLogin = (event) => {
